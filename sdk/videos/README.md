@@ -70,43 +70,48 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::VideosApi.new
-video_id = 'video_id_example' # String | Video ID
+opts = {
+  limit: 25, # Integer | Maximum number of items to return in a single request. <br> **Default:** `25`
+  offset: 0, # Integer | Starting point of the result set. <br>To get page 2 with a limit of 25, set `offset` to `25`. <br> **Default:** `0`
+  sort: 'created_at', # String | Field to sort by (created_at, name, size, updated_at, duration)
+  order: 'desc' # String | Sort order (asc, desc)
+}
 
 begin
-  #Delete all audio tracks
-  result = api_instance.delete_videos_video_id_audio_tracks(video_id)
+  #List videos for a project
+  result = api_instance.videos_get(opts)
   p result
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling VideosApi->delete_videos_video_id_audio_tracks: #{e}"
+  puts "Exception when calling VideosApi->videos_get: #{e}"
 end
 
 ```
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.rixl.com*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*OpenapiClient::VideosApi* | [**delete_videos_video_id_audio_tracks**](docs/VideosApi.md#delete_videos_video_id_audio_tracks) | **DELETE** /videos/{videoId}/audio-tracks | Delete all audio tracks
-*OpenapiClient::VideosApi* | [**delete_videos_video_id_audio_tracks_lang_code**](docs/VideosApi.md#delete_videos_video_id_audio_tracks_lang_code) | **DELETE** /videos/{videoId}/audio-tracks/{lang_code} | Delete audio track by language
-*OpenapiClient::VideosApi* | [**delete_videos_video_id_audio_tracks_track_id**](docs/VideosApi.md#delete_videos_video_id_audio_tracks_track_id) | **DELETE** /videos/{videoId}/audio-tracks/{trackId} | Delete audio track
-*OpenapiClient::VideosApi* | [**delete_videos_video_id_chapters**](docs/VideosApi.md#delete_videos_video_id_chapters) | **DELETE** /videos/{videoId}/chapters | Delete video chapters
-*OpenapiClient::VideosApi* | [**delete_videos_video_id_delete**](docs/VideosApi.md#delete_videos_video_id_delete) | **DELETE** /videos/{videoId}/delete | Delete video
-*OpenapiClient::VideosApi* | [**delete_videos_video_id_subtitles**](docs/VideosApi.md#delete_videos_video_id_subtitles) | **DELETE** /videos/{videoId}/subtitles | Delete all subtitles
-*OpenapiClient::VideosApi* | [**delete_videos_video_id_subtitles_lang_code**](docs/VideosApi.md#delete_videos_video_id_subtitles_lang_code) | **DELETE** /videos/{videoId}/subtitles/{lang_code} | Delete subtitle by language
-*OpenapiClient::VideosApi* | [**delete_videos_video_id_subtitles_subtitle_id**](docs/VideosApi.md#delete_videos_video_id_subtitles_subtitle_id) | **DELETE** /videos/{videoId}/subtitles/{subtitleId} | Delete subtitle
-*OpenapiClient::VideosApi* | [**get_videos**](docs/VideosApi.md#get_videos) | **GET** /videos | List videos for a project
-*OpenapiClient::VideosApi* | [**get_videos_languages**](docs/VideosApi.md#get_videos_languages) | **GET** /videos/languages | List available subtitle languages
-*OpenapiClient::VideosApi* | [**get_videos_video_id**](docs/VideosApi.md#get_videos_video_id) | **GET** /videos/{videoId} | Get a video
-*OpenapiClient::VideosApi* | [**post_videos_upload_complete**](docs/VideosApi.md#post_videos_upload_complete) | **POST** /videos/upload/complete | Upload: Mark as complete
-*OpenapiClient::VideosApi* | [**post_videos_upload_init**](docs/VideosApi.md#post_videos_upload_init) | **POST** /videos/upload/init | Upload: Init
-*OpenapiClient::VideosApi* | [**post_videos_video_id_audio_tracks**](docs/VideosApi.md#post_videos_video_id_audio_tracks) | **POST** /videos/{videoId}/audio-tracks | Bulk upsert video audio tracks
-*OpenapiClient::VideosApi* | [**post_videos_video_id_subtitles**](docs/VideosApi.md#post_videos_video_id_subtitles) | **POST** /videos/{videoId}/subtitles | Bulk upsert video subtitles
-*OpenapiClient::VideosApi* | [**put_videos_video_id_audio_tracks_lang_code**](docs/VideosApi.md#put_videos_video_id_audio_tracks_lang_code) | **PUT** /videos/{videoId}/audio-tracks/{lang_code} | Upsert video audio track
-*OpenapiClient::VideosApi* | [**put_videos_video_id_chapters**](docs/VideosApi.md#put_videos_video_id_chapters) | **PUT** /videos/{videoId}/chapters | Update video chapters
-*OpenapiClient::VideosApi* | [**put_videos_video_id_subtitles_lang_code**](docs/VideosApi.md#put_videos_video_id_subtitles_lang_code) | **PUT** /videos/{videoId}/subtitles/{lang_code} | Upsert video subtitle
-*OpenapiClient::VideosApi* | [**put_videos_video_id_thumbnail**](docs/VideosApi.md#put_videos_video_id_thumbnail) | **PUT** /videos/{videoId}/thumbnail | Update video thumbnail
+*OpenapiClient::VideosApi* | [**videos_get**](docs/VideosApi.md#videos_get) | **GET** /videos | List videos for a project
+*OpenapiClient::VideosApi* | [**videos_languages_get**](docs/VideosApi.md#videos_languages_get) | **GET** /videos/languages | List available subtitle languages
+*OpenapiClient::VideosApi* | [**videos_upload_complete_post**](docs/VideosApi.md#videos_upload_complete_post) | **POST** /videos/upload/complete | Upload: Mark as complete
+*OpenapiClient::VideosApi* | [**videos_upload_init_post**](docs/VideosApi.md#videos_upload_init_post) | **POST** /videos/upload/init | Upload: Init
+*OpenapiClient::VideosApi* | [**videos_video_id_audio_tracks_delete**](docs/VideosApi.md#videos_video_id_audio_tracks_delete) | **DELETE** /videos/{videoId}/audio-tracks | Delete all audio tracks
+*OpenapiClient::VideosApi* | [**videos_video_id_audio_tracks_lang_code_delete**](docs/VideosApi.md#videos_video_id_audio_tracks_lang_code_delete) | **DELETE** /videos/{videoId}/audio-tracks/{lang_code} | Delete audio track by language
+*OpenapiClient::VideosApi* | [**videos_video_id_audio_tracks_lang_code_put**](docs/VideosApi.md#videos_video_id_audio_tracks_lang_code_put) | **PUT** /videos/{videoId}/audio-tracks/{lang_code} | Upsert video audio track
+*OpenapiClient::VideosApi* | [**videos_video_id_audio_tracks_post**](docs/VideosApi.md#videos_video_id_audio_tracks_post) | **POST** /videos/{videoId}/audio-tracks | Bulk upsert video audio tracks
+*OpenapiClient::VideosApi* | [**videos_video_id_audio_tracks_track_id_delete**](docs/VideosApi.md#videos_video_id_audio_tracks_track_id_delete) | **DELETE** /videos/{videoId}/audio-tracks/{trackId} | Delete audio track
+*OpenapiClient::VideosApi* | [**videos_video_id_chapters_delete**](docs/VideosApi.md#videos_video_id_chapters_delete) | **DELETE** /videos/{videoId}/chapters | Delete video chapters
+*OpenapiClient::VideosApi* | [**videos_video_id_chapters_put**](docs/VideosApi.md#videos_video_id_chapters_put) | **PUT** /videos/{videoId}/chapters | Update video chapters
+*OpenapiClient::VideosApi* | [**videos_video_id_delete_delete**](docs/VideosApi.md#videos_video_id_delete_delete) | **DELETE** /videos/{videoId}/delete | Delete video
+*OpenapiClient::VideosApi* | [**videos_video_id_get**](docs/VideosApi.md#videos_video_id_get) | **GET** /videos/{videoId} | Get a video
+*OpenapiClient::VideosApi* | [**videos_video_id_subtitles_delete**](docs/VideosApi.md#videos_video_id_subtitles_delete) | **DELETE** /videos/{videoId}/subtitles | Delete all subtitles
+*OpenapiClient::VideosApi* | [**videos_video_id_subtitles_lang_code_delete**](docs/VideosApi.md#videos_video_id_subtitles_lang_code_delete) | **DELETE** /videos/{videoId}/subtitles/{lang_code} | Delete subtitle by language
+*OpenapiClient::VideosApi* | [**videos_video_id_subtitles_lang_code_put**](docs/VideosApi.md#videos_video_id_subtitles_lang_code_put) | **PUT** /videos/{videoId}/subtitles/{lang_code} | Upsert video subtitle
+*OpenapiClient::VideosApi* | [**videos_video_id_subtitles_post**](docs/VideosApi.md#videos_video_id_subtitles_post) | **POST** /videos/{videoId}/subtitles | Bulk upsert video subtitles
+*OpenapiClient::VideosApi* | [**videos_video_id_subtitles_subtitle_id_delete**](docs/VideosApi.md#videos_video_id_subtitles_subtitle_id_delete) | **DELETE** /videos/{videoId}/subtitles/{subtitleId} | Delete subtitle
+*OpenapiClient::VideosApi* | [**videos_video_id_thumbnail_put**](docs/VideosApi.md#videos_video_id_thumbnail_put) | **PUT** /videos/{videoId}/thumbnail | Update video thumbnail
 
 
 ## Documentation for Models
@@ -126,15 +131,15 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::InternalVideosHandlerSubtitlesLanguageResponse](docs/InternalVideosHandlerSubtitlesLanguageResponse.md)
  - [OpenapiClient::PaginationPaginatedResponseVideo](docs/PaginationPaginatedResponseVideo.md)
  - [OpenapiClient::PaginationPagination](docs/PaginationPagination.md)
- - [OpenapiClient::PostVideosUploadCompleteRequest](docs/PostVideosUploadCompleteRequest.md)
- - [OpenapiClient::PostVideosUploadInitRequest](docs/PostVideosUploadInitRequest.md)
- - [OpenapiClient::PutVideosVideoIdChaptersRequest](docs/PutVideosVideoIdChaptersRequest.md)
  - [OpenapiClient::Subtitle](docs/Subtitle.md)
  - [OpenapiClient::SubtitleDelete](docs/SubtitleDelete.md)
  - [OpenapiClient::UpdateChaptersRequest](docs/UpdateChaptersRequest.md)
  - [OpenapiClient::UpdateChaptersResponse](docs/UpdateChaptersResponse.md)
  - [OpenapiClient::Video](docs/Video.md)
  - [OpenapiClient::VideoUploadInitRequest](docs/VideoUploadInitRequest.md)
+ - [OpenapiClient::VideosUploadCompletePostRequest](docs/VideosUploadCompletePostRequest.md)
+ - [OpenapiClient::VideosUploadInitPostRequest](docs/VideosUploadInitPostRequest.md)
+ - [OpenapiClient::VideosVideoIdChaptersPutRequest](docs/VideosVideoIdChaptersPutRequest.md)
 
 
 ## Documentation for Authorization
@@ -146,5 +151,12 @@ Authentication schemes defined for the API:
 
 - **Type**: API key
 - **API key parameter name**: X-API-Key
+- **Location**: HTTP header
+
+### Bearer
+
+
+- **Type**: API key
+- **API key parameter name**: Authorization
 - **Location**: HTTP header
 

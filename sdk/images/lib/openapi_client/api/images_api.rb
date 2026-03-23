@@ -19,69 +19,6 @@ module OpenapiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Delete image
-    # delete an image by marking it as deleted
-    # @param image_id [String] Image ID
-    # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def delete_images_image_id(image_id, opts = {})
-      delete_images_image_id_with_http_info(image_id, opts)
-      nil
-    end
-
-    # Delete image
-    # delete an image by marking it as deleted
-    # @param image_id [String] Image ID
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_images_image_id_with_http_info(image_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImagesApi.delete_images_image_id ...'
-      end
-      # verify the required parameter 'image_id' is set
-      if @api_client.config.client_side_validation && image_id.nil?
-        fail ArgumentError, "Missing the required parameter 'image_id' when calling ImagesApi.delete_images_image_id"
-      end
-      # resource path
-      local_var_path = '/images/{imageId}'.sub('{' + 'imageId' + '}', CGI.escape(image_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type]
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"ImagesApi.delete_images_image_id",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImagesApi#delete_images_image_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # List images for a project
     # Retrieve all images for a specific project, with pagination and sorting.
     # @param [Hash] opts the optional parameters
@@ -90,8 +27,8 @@ module OpenapiClient
     # @option opts [String] :sort Field to sort by (created_at, name, size, updated_at)
     # @option opts [String] :order Sort order (asc, desc)
     # @return [PaginationPaginatedResponseImage]
-    def get_images(opts = {})
-      data, _status_code, _headers = get_images_with_http_info(opts)
+    def images_get(opts = {})
+      data, _status_code, _headers = images_get_with_http_info(opts)
       data
     end
 
@@ -103,20 +40,20 @@ module OpenapiClient
     # @option opts [String] :sort Field to sort by (created_at, name, size, updated_at)
     # @option opts [String] :order Sort order (asc, desc)
     # @return [Array<(PaginationPaginatedResponseImage, Integer, Hash)>] PaginationPaginatedResponseImage data, response status code and response headers
-    def get_images_with_http_info(opts = {})
+    def images_get_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImagesApi.get_images ...'
+        @api_client.config.logger.debug 'Calling API: ImagesApi.images_get ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ImagesApi.get_images, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ImagesApi.images_get, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ImagesApi.get_images, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ImagesApi.images_get, must be greater than or equal to 1.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling ImagesApi.get_images, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling ImagesApi.images_get, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -147,7 +84,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"ImagesApi.get_images",
+        :operation => :"ImagesApi.images_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -158,7 +95,70 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImagesApi#get_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImagesApi#images_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete image
+    # delete an image by marking it as deleted
+    # @param image_id [String] Image ID
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def images_image_id_delete(image_id, opts = {})
+      images_image_id_delete_with_http_info(image_id, opts)
+      nil
+    end
+
+    # Delete image
+    # delete an image by marking it as deleted
+    # @param image_id [String] Image ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def images_image_id_delete_with_http_info(image_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ImagesApi.images_image_id_delete ...'
+      end
+      # verify the required parameter 'image_id' is set
+      if @api_client.config.client_side_validation && image_id.nil?
+        fail ArgumentError, "Missing the required parameter 'image_id' when calling ImagesApi.images_image_id_delete"
+      end
+      # resource path
+      local_var_path = '/images/{imageId}'.sub('{' + 'imageId' + '}', CGI.escape(image_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"ImagesApi.images_image_id_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ImagesApi#images_image_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -168,8 +168,8 @@ module OpenapiClient
     # @param image_id [String] Image ID
     # @param [Hash] opts the optional parameters
     # @return [Image]
-    def get_images_image_id(image_id, opts = {})
-      data, _status_code, _headers = get_images_image_id_with_http_info(image_id, opts)
+    def images_image_id_get(image_id, opts = {})
+      data, _status_code, _headers = images_image_id_get_with_http_info(image_id, opts)
       data
     end
 
@@ -178,13 +178,13 @@ module OpenapiClient
     # @param image_id [String] Image ID
     # @param [Hash] opts the optional parameters
     # @return [Array<(Image, Integer, Hash)>] Image data, response status code and response headers
-    def get_images_image_id_with_http_info(image_id, opts = {})
+    def images_image_id_get_with_http_info(image_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImagesApi.get_images_image_id ...'
+        @api_client.config.logger.debug 'Calling API: ImagesApi.images_image_id_get ...'
       end
       # verify the required parameter 'image_id' is set
       if @api_client.config.client_side_validation && image_id.nil?
-        fail ArgumentError, "Missing the required parameter 'image_id' when calling ImagesApi.get_images_image_id"
+        fail ArgumentError, "Missing the required parameter 'image_id' when calling ImagesApi.images_image_id_get"
       end
       # resource path
       local_var_path = '/images/{imageId}'.sub('{' + 'imageId' + '}', CGI.escape(image_id.to_s))
@@ -210,7 +210,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"ImagesApi.get_images_image_id",
+        :operation => :"ImagesApi.images_image_id_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -221,33 +221,33 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImagesApi#get_images_image_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImagesApi#images_image_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # Upload: Mark as complete
     # Complete the upload process and create the image record using API key authentication
-    # @param post_images_upload_complete_request [PostImagesUploadCompleteRequest] Upload completion request
+    # @param images_upload_complete_post_request [ImagesUploadCompletePostRequest] Upload completion request
     # @param [Hash] opts the optional parameters
     # @return [Image]
-    def post_images_upload_complete(post_images_upload_complete_request, opts = {})
-      data, _status_code, _headers = post_images_upload_complete_with_http_info(post_images_upload_complete_request, opts)
+    def images_upload_complete_post(images_upload_complete_post_request, opts = {})
+      data, _status_code, _headers = images_upload_complete_post_with_http_info(images_upload_complete_post_request, opts)
       data
     end
 
     # Upload: Mark as complete
     # Complete the upload process and create the image record using API key authentication
-    # @param post_images_upload_complete_request [PostImagesUploadCompleteRequest] Upload completion request
+    # @param images_upload_complete_post_request [ImagesUploadCompletePostRequest] Upload completion request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Image, Integer, Hash)>] Image data, response status code and response headers
-    def post_images_upload_complete_with_http_info(post_images_upload_complete_request, opts = {})
+    def images_upload_complete_post_with_http_info(images_upload_complete_post_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImagesApi.post_images_upload_complete ...'
+        @api_client.config.logger.debug 'Calling API: ImagesApi.images_upload_complete_post ...'
       end
-      # verify the required parameter 'post_images_upload_complete_request' is set
-      if @api_client.config.client_side_validation && post_images_upload_complete_request.nil?
-        fail ArgumentError, "Missing the required parameter 'post_images_upload_complete_request' when calling ImagesApi.post_images_upload_complete"
+      # verify the required parameter 'images_upload_complete_post_request' is set
+      if @api_client.config.client_side_validation && images_upload_complete_post_request.nil?
+        fail ArgumentError, "Missing the required parameter 'images_upload_complete_post_request' when calling ImagesApi.images_upload_complete_post"
       end
       # resource path
       local_var_path = '/images/upload/complete'
@@ -269,7 +269,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(post_images_upload_complete_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(images_upload_complete_post_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'Image'
@@ -278,7 +278,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"ImagesApi.post_images_upload_complete",
+        :operation => :"ImagesApi.images_upload_complete_post",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -289,33 +289,33 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImagesApi#post_images_upload_complete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImagesApi#images_upload_complete_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # Upload: Init
     # Initialize a presigned URL upload for an image file using API key authentication
-    # @param post_images_upload_init_request [PostImagesUploadInitRequest] Upload initialization request
+    # @param images_upload_init_post_request [ImagesUploadInitPostRequest] Upload initialization request
     # @param [Hash] opts the optional parameters
     # @return [InternalImagesHandlerInitResponse]
-    def post_images_upload_init(post_images_upload_init_request, opts = {})
-      data, _status_code, _headers = post_images_upload_init_with_http_info(post_images_upload_init_request, opts)
+    def images_upload_init_post(images_upload_init_post_request, opts = {})
+      data, _status_code, _headers = images_upload_init_post_with_http_info(images_upload_init_post_request, opts)
       data
     end
 
     # Upload: Init
     # Initialize a presigned URL upload for an image file using API key authentication
-    # @param post_images_upload_init_request [PostImagesUploadInitRequest] Upload initialization request
+    # @param images_upload_init_post_request [ImagesUploadInitPostRequest] Upload initialization request
     # @param [Hash] opts the optional parameters
     # @return [Array<(InternalImagesHandlerInitResponse, Integer, Hash)>] InternalImagesHandlerInitResponse data, response status code and response headers
-    def post_images_upload_init_with_http_info(post_images_upload_init_request, opts = {})
+    def images_upload_init_post_with_http_info(images_upload_init_post_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ImagesApi.post_images_upload_init ...'
+        @api_client.config.logger.debug 'Calling API: ImagesApi.images_upload_init_post ...'
       end
-      # verify the required parameter 'post_images_upload_init_request' is set
-      if @api_client.config.client_side_validation && post_images_upload_init_request.nil?
-        fail ArgumentError, "Missing the required parameter 'post_images_upload_init_request' when calling ImagesApi.post_images_upload_init"
+      # verify the required parameter 'images_upload_init_post_request' is set
+      if @api_client.config.client_side_validation && images_upload_init_post_request.nil?
+        fail ArgumentError, "Missing the required parameter 'images_upload_init_post_request' when calling ImagesApi.images_upload_init_post"
       end
       # resource path
       local_var_path = '/images/upload/init'
@@ -337,7 +337,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(post_images_upload_init_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(images_upload_init_post_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'InternalImagesHandlerInitResponse'
@@ -346,7 +346,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"ImagesApi.post_images_upload_init",
+        :operation => :"ImagesApi.images_upload_init_post",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -357,7 +357,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ImagesApi#post_images_upload_init\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ImagesApi#images_upload_init_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

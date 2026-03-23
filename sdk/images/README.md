@@ -70,28 +70,34 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::ImagesApi.new
-image_id = 'image_id_example' # String | Image ID
+opts = {
+  limit: 25, # Integer | Maximum number of items to return in a single request. <br> **Default:** `25`
+  offset: 0, # Integer | Starting point of the result set. <br>To get page 2 with a limit of 25, set `offset` to `25`. <br> **Default:** `0`
+  sort: 'created_at', # String | Field to sort by (created_at, name, size, updated_at)
+  order: 'desc' # String | Sort order (asc, desc)
+}
 
 begin
-  #Delete image
-  api_instance.delete_images_image_id(image_id)
+  #List images for a project
+  result = api_instance.images_get(opts)
+  p result
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling ImagesApi->delete_images_image_id: #{e}"
+  puts "Exception when calling ImagesApi->images_get: #{e}"
 end
 
 ```
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.rixl.com*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*OpenapiClient::ImagesApi* | [**delete_images_image_id**](docs/ImagesApi.md#delete_images_image_id) | **DELETE** /images/{imageId} | Delete image
-*OpenapiClient::ImagesApi* | [**get_images**](docs/ImagesApi.md#get_images) | **GET** /images | List images for a project
-*OpenapiClient::ImagesApi* | [**get_images_image_id**](docs/ImagesApi.md#get_images_image_id) | **GET** /images/{imageId} | Get image
-*OpenapiClient::ImagesApi* | [**post_images_upload_complete**](docs/ImagesApi.md#post_images_upload_complete) | **POST** /images/upload/complete | Upload: Mark as complete
-*OpenapiClient::ImagesApi* | [**post_images_upload_init**](docs/ImagesApi.md#post_images_upload_init) | **POST** /images/upload/init | Upload: Init
+*OpenapiClient::ImagesApi* | [**images_get**](docs/ImagesApi.md#images_get) | **GET** /images | List images for a project
+*OpenapiClient::ImagesApi* | [**images_image_id_delete**](docs/ImagesApi.md#images_image_id_delete) | **DELETE** /images/{imageId} | Delete image
+*OpenapiClient::ImagesApi* | [**images_image_id_get**](docs/ImagesApi.md#images_image_id_get) | **GET** /images/{imageId} | Get image
+*OpenapiClient::ImagesApi* | [**images_upload_complete_post**](docs/ImagesApi.md#images_upload_complete_post) | **POST** /images/upload/complete | Upload: Mark as complete
+*OpenapiClient::ImagesApi* | [**images_upload_init_post**](docs/ImagesApi.md#images_upload_init_post) | **POST** /images/upload/init | Upload: Init
 
 
 ## Documentation for Models
@@ -100,13 +106,13 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::FileStatus](docs/FileStatus.md)
  - [OpenapiClient::GithubComQeeqezApiInternalErrorsErrorResponse](docs/GithubComQeeqezApiInternalErrorsErrorResponse.md)
  - [OpenapiClient::Image](docs/Image.md)
+ - [OpenapiClient::ImagesUploadCompletePostRequest](docs/ImagesUploadCompletePostRequest.md)
+ - [OpenapiClient::ImagesUploadInitPostRequest](docs/ImagesUploadInitPostRequest.md)
  - [OpenapiClient::InternalImagesHandlerCompleteRequest](docs/InternalImagesHandlerCompleteRequest.md)
  - [OpenapiClient::InternalImagesHandlerInitResponse](docs/InternalImagesHandlerInitResponse.md)
  - [OpenapiClient::InternalImagesHandlerUploadInitRequest](docs/InternalImagesHandlerUploadInitRequest.md)
  - [OpenapiClient::PaginationPaginatedResponseImage](docs/PaginationPaginatedResponseImage.md)
  - [OpenapiClient::PaginationPagination](docs/PaginationPagination.md)
- - [OpenapiClient::PostImagesUploadCompleteRequest](docs/PostImagesUploadCompleteRequest.md)
- - [OpenapiClient::PostImagesUploadInitRequest](docs/PostImagesUploadInitRequest.md)
 
 
 ## Documentation for Authorization
@@ -118,5 +124,12 @@ Authentication schemes defined for the API:
 
 - **Type**: API key
 - **API key parameter name**: X-API-Key
+- **Location**: HTTP header
+
+### Bearer
+
+
+- **Type**: API key
+- **API key parameter name**: Authorization
 - **Location**: HTTP header
 

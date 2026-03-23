@@ -62,31 +62,32 @@ Please follow the [installation](#installation) procedure and then run the follo
 require 'openapi_client'
 
 api_instance = OpenapiClient::FeedsApi.new
-feed_id = 'feed_id_example' # String | Feed ID
+feed_id = 'F4edRI23XL' # String | Feed ID
+creator_id = 'C6rtRI23XL' # String | Creator ID
 opts = {
-  limit: 56, # Integer | Maximum number of items to return in a single request. <br> **Default:** `25`
-  offset: 56 # Integer | Starting point of the result set. <br>To get page 2 with a limit of 25, set `offset` to `25`. <br> **Default:** `0`
+  limit: 25, # Integer | Maximum number of items to return in a single request. <br> **Default:** `25`
+  offset: 0 # Integer | Starting point of the result set. <br>To get page 2 with a limit of 25, set `offset` to `25`. <br> **Default:** `0`
 }
 
 begin
-  #List posts in a feed
-  result = api_instance.get_feeds_feed_id(feed_id, opts)
+  #List posts by creator
+  result = api_instance.feeds_feed_id_creators_creator_id_get(feed_id, creator_id, opts)
   p result
 rescue OpenapiClient::ApiError => e
-  puts "Exception when calling FeedsApi->get_feeds_feed_id: #{e}"
+  puts "Exception when calling FeedsApi->feeds_feed_id_creators_creator_id_get: #{e}"
 end
 
 ```
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.rixl.com*
+All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*OpenapiClient::FeedsApi* | [**get_feeds_feed_id**](docs/FeedsApi.md#get_feeds_feed_id) | **GET** /feeds/{feedId} | List posts in a feed
-*OpenapiClient::FeedsApi* | [**get_feeds_feed_id_creators_creator_id**](docs/FeedsApi.md#get_feeds_feed_id_creators_creator_id) | **GET** /feeds/{feedId}/creators/{creatorId} | List posts by creator
-*OpenapiClient::FeedsApi* | [**get_feeds_feed_id_post_id**](docs/FeedsApi.md#get_feeds_feed_id_post_id) | **GET** /feeds/{feedId}/{postId} | Get a post
+*OpenapiClient::FeedsApi* | [**feeds_feed_id_creators_creator_id_get**](docs/FeedsApi.md#feeds_feed_id_creators_creator_id_get) | **GET** /feeds/{feedId}/creators/{creatorId} | List posts by creator
+*OpenapiClient::FeedsApi* | [**feeds_feed_id_get**](docs/FeedsApi.md#feeds_feed_id_get) | **GET** /feeds/{feedId} | List posts in a feed
+*OpenapiClient::FeedsApi* | [**feeds_feed_id_post_id_get**](docs/FeedsApi.md#feeds_feed_id_post_id_get) | **GET** /feeds/{feedId}/{postId} | Get a post
 
 
 ## Documentation for Models
@@ -113,5 +114,12 @@ Authentication schemes defined for the API:
 
 - **Type**: API key
 - **API key parameter name**: X-API-Key
+- **Location**: HTTP header
+
+### Bearer
+
+
+- **Type**: API key
+- **API key parameter name**: Authorization
 - **Location**: HTTP header
 

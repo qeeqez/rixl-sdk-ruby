@@ -19,87 +19,6 @@ module OpenapiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # List posts in a feed
-    # Retrieve posts in a feed, with pagination.
-    # @param feed_id [String] Feed ID
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit Maximum number of items to return in a single request. &lt;br&gt; **Default:** &#x60;25&#x60; (default to 25)
-    # @option opts [Integer] :offset Starting point of the result set. &lt;br&gt;To get page 2 with a limit of 25, set &#x60;offset&#x60; to &#x60;25&#x60;. &lt;br&gt; **Default:** &#x60;0&#x60; (default to 0)
-    # @return [PaginationPaginatedResponsePost]
-    def get_feeds_feed_id(feed_id, opts = {})
-      data, _status_code, _headers = get_feeds_feed_id_with_http_info(feed_id, opts)
-      data
-    end
-
-    # List posts in a feed
-    # Retrieve posts in a feed, with pagination.
-    # @param feed_id [String] Feed ID
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit Maximum number of items to return in a single request. &lt;br&gt; **Default:** &#x60;25&#x60; (default to 25)
-    # @option opts [Integer] :offset Starting point of the result set. &lt;br&gt;To get page 2 with a limit of 25, set &#x60;offset&#x60; to &#x60;25&#x60;. &lt;br&gt; **Default:** &#x60;0&#x60; (default to 0)
-    # @return [Array<(PaginationPaginatedResponsePost, Integer, Hash)>] PaginationPaginatedResponsePost data, response status code and response headers
-    def get_feeds_feed_id_with_http_info(feed_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FeedsApi.get_feeds_feed_id ...'
-      end
-      # verify the required parameter 'feed_id' is set
-      if @api_client.config.client_side_validation && feed_id.nil?
-        fail ArgumentError, "Missing the required parameter 'feed_id' when calling FeedsApi.get_feeds_feed_id"
-      end
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FeedsApi.get_feeds_feed_id, must be smaller than or equal to 100.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FeedsApi.get_feeds_feed_id, must be greater than or equal to 1.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FeedsApi.get_feeds_feed_id, must be greater than or equal to 0.'
-      end
-
-      # resource path
-      local_var_path = '/feeds/{feedId}'.sub('{' + 'feedId' + '}', CGI.escape(feed_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'PaginationPaginatedResponsePost'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || []
-
-      new_options = opts.merge(
-        :operation => :"FeedsApi.get_feeds_feed_id",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FeedsApi#get_feeds_feed_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # List posts by creator
     # Retrieve posts in a feed by a specific creator, with pagination.
     # @param feed_id [String] Feed ID
@@ -108,8 +27,8 @@ module OpenapiClient
     # @option opts [Integer] :limit Maximum number of items to return in a single request. &lt;br&gt; **Default:** &#x60;25&#x60; (default to 25)
     # @option opts [Integer] :offset Starting point of the result set. &lt;br&gt;To get page 2 with a limit of 25, set &#x60;offset&#x60; to &#x60;25&#x60;. &lt;br&gt; **Default:** &#x60;0&#x60; (default to 0)
     # @return [PaginationPaginatedResponsePost]
-    def get_feeds_feed_id_creators_creator_id(feed_id, creator_id, opts = {})
-      data, _status_code, _headers = get_feeds_feed_id_creators_creator_id_with_http_info(feed_id, creator_id, opts)
+    def feeds_feed_id_creators_creator_id_get(feed_id, creator_id, opts = {})
+      data, _status_code, _headers = feeds_feed_id_creators_creator_id_get_with_http_info(feed_id, creator_id, opts)
       data
     end
 
@@ -121,28 +40,28 @@ module OpenapiClient
     # @option opts [Integer] :limit Maximum number of items to return in a single request. &lt;br&gt; **Default:** &#x60;25&#x60; (default to 25)
     # @option opts [Integer] :offset Starting point of the result set. &lt;br&gt;To get page 2 with a limit of 25, set &#x60;offset&#x60; to &#x60;25&#x60;. &lt;br&gt; **Default:** &#x60;0&#x60; (default to 0)
     # @return [Array<(PaginationPaginatedResponsePost, Integer, Hash)>] PaginationPaginatedResponsePost data, response status code and response headers
-    def get_feeds_feed_id_creators_creator_id_with_http_info(feed_id, creator_id, opts = {})
+    def feeds_feed_id_creators_creator_id_get_with_http_info(feed_id, creator_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FeedsApi.get_feeds_feed_id_creators_creator_id ...'
+        @api_client.config.logger.debug 'Calling API: FeedsApi.feeds_feed_id_creators_creator_id_get ...'
       end
       # verify the required parameter 'feed_id' is set
       if @api_client.config.client_side_validation && feed_id.nil?
-        fail ArgumentError, "Missing the required parameter 'feed_id' when calling FeedsApi.get_feeds_feed_id_creators_creator_id"
+        fail ArgumentError, "Missing the required parameter 'feed_id' when calling FeedsApi.feeds_feed_id_creators_creator_id_get"
       end
       # verify the required parameter 'creator_id' is set
       if @api_client.config.client_side_validation && creator_id.nil?
-        fail ArgumentError, "Missing the required parameter 'creator_id' when calling FeedsApi.get_feeds_feed_id_creators_creator_id"
+        fail ArgumentError, "Missing the required parameter 'creator_id' when calling FeedsApi.feeds_feed_id_creators_creator_id_get"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FeedsApi.get_feeds_feed_id_creators_creator_id, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FeedsApi.feeds_feed_id_creators_creator_id_get, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FeedsApi.get_feeds_feed_id_creators_creator_id, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FeedsApi.feeds_feed_id_creators_creator_id_get, must be greater than or equal to 1.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FeedsApi.get_feeds_feed_id_creators_creator_id, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FeedsApi.feeds_feed_id_creators_creator_id_get, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -171,7 +90,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"FeedsApi.get_feeds_feed_id_creators_creator_id",
+        :operation => :"FeedsApi.feeds_feed_id_creators_creator_id_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -182,7 +101,88 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FeedsApi#get_feeds_feed_id_creators_creator_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FeedsApi#feeds_feed_id_creators_creator_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List posts in a feed
+    # Retrieve posts in a feed, with pagination.
+    # @param feed_id [String] Feed ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit Maximum number of items to return in a single request. &lt;br&gt; **Default:** &#x60;25&#x60; (default to 25)
+    # @option opts [Integer] :offset Starting point of the result set. &lt;br&gt;To get page 2 with a limit of 25, set &#x60;offset&#x60; to &#x60;25&#x60;. &lt;br&gt; **Default:** &#x60;0&#x60; (default to 0)
+    # @return [PaginationPaginatedResponsePost]
+    def feeds_feed_id_get(feed_id, opts = {})
+      data, _status_code, _headers = feeds_feed_id_get_with_http_info(feed_id, opts)
+      data
+    end
+
+    # List posts in a feed
+    # Retrieve posts in a feed, with pagination.
+    # @param feed_id [String] Feed ID
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit Maximum number of items to return in a single request. &lt;br&gt; **Default:** &#x60;25&#x60; (default to 25)
+    # @option opts [Integer] :offset Starting point of the result set. &lt;br&gt;To get page 2 with a limit of 25, set &#x60;offset&#x60; to &#x60;25&#x60;. &lt;br&gt; **Default:** &#x60;0&#x60; (default to 0)
+    # @return [Array<(PaginationPaginatedResponsePost, Integer, Hash)>] PaginationPaginatedResponsePost data, response status code and response headers
+    def feeds_feed_id_get_with_http_info(feed_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: FeedsApi.feeds_feed_id_get ...'
+      end
+      # verify the required parameter 'feed_id' is set
+      if @api_client.config.client_side_validation && feed_id.nil?
+        fail ArgumentError, "Missing the required parameter 'feed_id' when calling FeedsApi.feeds_feed_id_get"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FeedsApi.feeds_feed_id_get, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling FeedsApi.feeds_feed_id_get, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling FeedsApi.feeds_feed_id_get, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/feeds/{feedId}'.sub('{' + 'feedId' + '}', CGI.escape(feed_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PaginationPaginatedResponsePost'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || []
+
+      new_options = opts.merge(
+        :operation => :"FeedsApi.feeds_feed_id_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FeedsApi#feeds_feed_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -193,8 +193,8 @@ module OpenapiClient
     # @param post_id [String] Post ID
     # @param [Hash] opts the optional parameters
     # @return [Post]
-    def get_feeds_feed_id_post_id(feed_id, post_id, opts = {})
-      data, _status_code, _headers = get_feeds_feed_id_post_id_with_http_info(feed_id, post_id, opts)
+    def feeds_feed_id_post_id_get(feed_id, post_id, opts = {})
+      data, _status_code, _headers = feeds_feed_id_post_id_get_with_http_info(feed_id, post_id, opts)
       data
     end
 
@@ -204,17 +204,17 @@ module OpenapiClient
     # @param post_id [String] Post ID
     # @param [Hash] opts the optional parameters
     # @return [Array<(Post, Integer, Hash)>] Post data, response status code and response headers
-    def get_feeds_feed_id_post_id_with_http_info(feed_id, post_id, opts = {})
+    def feeds_feed_id_post_id_get_with_http_info(feed_id, post_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: FeedsApi.get_feeds_feed_id_post_id ...'
+        @api_client.config.logger.debug 'Calling API: FeedsApi.feeds_feed_id_post_id_get ...'
       end
       # verify the required parameter 'feed_id' is set
       if @api_client.config.client_side_validation && feed_id.nil?
-        fail ArgumentError, "Missing the required parameter 'feed_id' when calling FeedsApi.get_feeds_feed_id_post_id"
+        fail ArgumentError, "Missing the required parameter 'feed_id' when calling FeedsApi.feeds_feed_id_post_id_get"
       end
       # verify the required parameter 'post_id' is set
       if @api_client.config.client_side_validation && post_id.nil?
-        fail ArgumentError, "Missing the required parameter 'post_id' when calling FeedsApi.get_feeds_feed_id_post_id"
+        fail ArgumentError, "Missing the required parameter 'post_id' when calling FeedsApi.feeds_feed_id_post_id_get"
       end
       # resource path
       local_var_path = '/feeds/{feedId}/{postId}'.sub('{' + 'feedId' + '}', CGI.escape(feed_id.to_s)).sub('{' + 'postId' + '}', CGI.escape(post_id.to_s))
@@ -240,7 +240,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"FeedsApi.get_feeds_feed_id_post_id",
+        :operation => :"FeedsApi.feeds_feed_id_post_id_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -251,7 +251,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: FeedsApi#get_feeds_feed_id_post_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: FeedsApi#feeds_feed_id_post_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

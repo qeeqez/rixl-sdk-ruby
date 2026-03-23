@@ -157,8 +157,8 @@ module OpenapiClient
     attr_accessor :force_ending_format
 
     def initialize
-      @scheme = 'https'
-      @host = 'api.rixl.com'
+      @scheme = 'http'
+      @host = 'localhost'
       @base_path = ''
       @server_index = nil
       @server_operation_index = {}
@@ -251,6 +251,13 @@ module OpenapiClient
             key: 'X-API-Key',
             value: api_key_with_prefix('X-API-Key')
           },
+        'Bearer' =>
+          {
+            type: 'api_key',
+            in: 'header',
+            key: 'Authorization',
+            value: api_key_with_prefix('Authorization')
+          },
       }
     end
 
@@ -258,7 +265,7 @@ module OpenapiClient
     def server_settings
       [
         {
-          url: "https://api.rixl.com",
+          url: "",
           description: "No description provided",
         }
       ]

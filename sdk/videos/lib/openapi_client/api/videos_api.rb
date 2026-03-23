@@ -19,534 +19,6 @@ module OpenapiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Delete all audio tracks
-    # Remove all additional audio tracks from a video using API key authentication
-    # @param video_id [String] Video ID
-    # @param [Hash] opts the optional parameters
-    # @return [AudioTrackDelete]
-    def delete_videos_video_id_audio_tracks(video_id, opts = {})
-      data, _status_code, _headers = delete_videos_video_id_audio_tracks_with_http_info(video_id, opts)
-      data
-    end
-
-    # Delete all audio tracks
-    # Remove all additional audio tracks from a video using API key authentication
-    # @param video_id [String] Video ID
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(AudioTrackDelete, Integer, Hash)>] AudioTrackDelete data, response status code and response headers
-    def delete_videos_video_id_audio_tracks_with_http_info(video_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.delete_videos_video_id_audio_tracks ...'
-      end
-      # verify the required parameter 'video_id' is set
-      if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.delete_videos_video_id_audio_tracks"
-      end
-      # resource path
-      local_var_path = '/videos/{videoId}/audio-tracks'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'AudioTrackDelete'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"VideosApi.delete_videos_video_id_audio_tracks",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#delete_videos_video_id_audio_tracks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Delete audio track by language
-    # Remove an audio track for a specific language using API key authentication
-    # @param video_id [String] Video ID
-    # @param lang_code [String] Language Code (BCP 47)
-    # @param [Hash] opts the optional parameters
-    # @return [AudioTrackDelete]
-    def delete_videos_video_id_audio_tracks_lang_code(video_id, lang_code, opts = {})
-      data, _status_code, _headers = delete_videos_video_id_audio_tracks_lang_code_with_http_info(video_id, lang_code, opts)
-      data
-    end
-
-    # Delete audio track by language
-    # Remove an audio track for a specific language using API key authentication
-    # @param video_id [String] Video ID
-    # @param lang_code [String] Language Code (BCP 47)
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(AudioTrackDelete, Integer, Hash)>] AudioTrackDelete data, response status code and response headers
-    def delete_videos_video_id_audio_tracks_lang_code_with_http_info(video_id, lang_code, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.delete_videos_video_id_audio_tracks_lang_code ...'
-      end
-      # verify the required parameter 'video_id' is set
-      if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.delete_videos_video_id_audio_tracks_lang_code"
-      end
-      # verify the required parameter 'lang_code' is set
-      if @api_client.config.client_side_validation && lang_code.nil?
-        fail ArgumentError, "Missing the required parameter 'lang_code' when calling VideosApi.delete_videos_video_id_audio_tracks_lang_code"
-      end
-      # resource path
-      local_var_path = '/videos/{videoId}/audio-tracks/{lang_code}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s)).sub('{' + 'lang_code' + '}', CGI.escape(lang_code.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'AudioTrackDelete'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"VideosApi.delete_videos_video_id_audio_tracks_lang_code",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#delete_videos_video_id_audio_tracks_lang_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Delete audio track
-    # Remove an additional audio track from a video using API key authentication
-    # @param video_id [String] Video ID
-    # @param track_id [String] Audio Track ID
-    # @param [Hash] opts the optional parameters
-    # @return [AudioTrackDelete]
-    def delete_videos_video_id_audio_tracks_track_id(video_id, track_id, opts = {})
-      data, _status_code, _headers = delete_videos_video_id_audio_tracks_track_id_with_http_info(video_id, track_id, opts)
-      data
-    end
-
-    # Delete audio track
-    # Remove an additional audio track from a video using API key authentication
-    # @param video_id [String] Video ID
-    # @param track_id [String] Audio Track ID
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(AudioTrackDelete, Integer, Hash)>] AudioTrackDelete data, response status code and response headers
-    def delete_videos_video_id_audio_tracks_track_id_with_http_info(video_id, track_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.delete_videos_video_id_audio_tracks_track_id ...'
-      end
-      # verify the required parameter 'video_id' is set
-      if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.delete_videos_video_id_audio_tracks_track_id"
-      end
-      # verify the required parameter 'track_id' is set
-      if @api_client.config.client_side_validation && track_id.nil?
-        fail ArgumentError, "Missing the required parameter 'track_id' when calling VideosApi.delete_videos_video_id_audio_tracks_track_id"
-      end
-      # resource path
-      local_var_path = '/videos/{videoId}/audio-tracks/{trackId}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s)).sub('{' + 'trackId' + '}', CGI.escape(track_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'AudioTrackDelete'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"VideosApi.delete_videos_video_id_audio_tracks_track_id",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#delete_videos_video_id_audio_tracks_track_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Delete video chapters
-    # Remove all chapters from a video using API key authentication
-    # @param video_id [String] Video ID
-    # @param [Hash] opts the optional parameters
-    # @return [UpdateChaptersResponse]
-    def delete_videos_video_id_chapters(video_id, opts = {})
-      data, _status_code, _headers = delete_videos_video_id_chapters_with_http_info(video_id, opts)
-      data
-    end
-
-    # Delete video chapters
-    # Remove all chapters from a video using API key authentication
-    # @param video_id [String] Video ID
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(UpdateChaptersResponse, Integer, Hash)>] UpdateChaptersResponse data, response status code and response headers
-    def delete_videos_video_id_chapters_with_http_info(video_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.delete_videos_video_id_chapters ...'
-      end
-      # verify the required parameter 'video_id' is set
-      if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.delete_videos_video_id_chapters"
-      end
-      # resource path
-      local_var_path = '/videos/{videoId}/chapters'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'UpdateChaptersResponse'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"VideosApi.delete_videos_video_id_chapters",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#delete_videos_video_id_chapters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Delete video
-    # Delete a video by its ID within a project
-    # @param video_id [String] Video ID
-    # @param [Hash] opts the optional parameters
-    # @return [nil]
-    def delete_videos_video_id_delete(video_id, opts = {})
-      delete_videos_video_id_delete_with_http_info(video_id, opts)
-      nil
-    end
-
-    # Delete video
-    # Delete a video by its ID within a project
-    # @param video_id [String] Video ID
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def delete_videos_video_id_delete_with_http_info(video_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.delete_videos_video_id_delete ...'
-      end
-      # verify the required parameter 'video_id' is set
-      if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.delete_videos_video_id_delete"
-      end
-      # resource path
-      local_var_path = '/videos/{videoId}/delete'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type]
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"VideosApi.delete_videos_video_id_delete",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#delete_videos_video_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Delete all subtitles
-    # Remove all subtitles from a video using API key authentication
-    # @param video_id [String] Video ID
-    # @param [Hash] opts the optional parameters
-    # @return [SubtitleDelete]
-    def delete_videos_video_id_subtitles(video_id, opts = {})
-      data, _status_code, _headers = delete_videos_video_id_subtitles_with_http_info(video_id, opts)
-      data
-    end
-
-    # Delete all subtitles
-    # Remove all subtitles from a video using API key authentication
-    # @param video_id [String] Video ID
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(SubtitleDelete, Integer, Hash)>] SubtitleDelete data, response status code and response headers
-    def delete_videos_video_id_subtitles_with_http_info(video_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.delete_videos_video_id_subtitles ...'
-      end
-      # verify the required parameter 'video_id' is set
-      if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.delete_videos_video_id_subtitles"
-      end
-      # resource path
-      local_var_path = '/videos/{videoId}/subtitles'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'SubtitleDelete'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"VideosApi.delete_videos_video_id_subtitles",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#delete_videos_video_id_subtitles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Delete subtitle by language
-    # Remove a subtitle for a specific language using API key authentication
-    # @param video_id [String] Video ID
-    # @param lang_code [String] Language Code (BCP 47)
-    # @param [Hash] opts the optional parameters
-    # @return [SubtitleDelete]
-    def delete_videos_video_id_subtitles_lang_code(video_id, lang_code, opts = {})
-      data, _status_code, _headers = delete_videos_video_id_subtitles_lang_code_with_http_info(video_id, lang_code, opts)
-      data
-    end
-
-    # Delete subtitle by language
-    # Remove a subtitle for a specific language using API key authentication
-    # @param video_id [String] Video ID
-    # @param lang_code [String] Language Code (BCP 47)
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(SubtitleDelete, Integer, Hash)>] SubtitleDelete data, response status code and response headers
-    def delete_videos_video_id_subtitles_lang_code_with_http_info(video_id, lang_code, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.delete_videos_video_id_subtitles_lang_code ...'
-      end
-      # verify the required parameter 'video_id' is set
-      if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.delete_videos_video_id_subtitles_lang_code"
-      end
-      # verify the required parameter 'lang_code' is set
-      if @api_client.config.client_side_validation && lang_code.nil?
-        fail ArgumentError, "Missing the required parameter 'lang_code' when calling VideosApi.delete_videos_video_id_subtitles_lang_code"
-      end
-      # resource path
-      local_var_path = '/videos/{videoId}/subtitles/{lang_code}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s)).sub('{' + 'lang_code' + '}', CGI.escape(lang_code.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'SubtitleDelete'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"VideosApi.delete_videos_video_id_subtitles_lang_code",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#delete_videos_video_id_subtitles_lang_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Delete subtitle
-    # Remove a subtitle from a video using API key authentication
-    # @param video_id [String] Video ID
-    # @param subtitle_id [String] Subtitle ID
-    # @param [Hash] opts the optional parameters
-    # @return [SubtitleDelete]
-    def delete_videos_video_id_subtitles_subtitle_id(video_id, subtitle_id, opts = {})
-      data, _status_code, _headers = delete_videos_video_id_subtitles_subtitle_id_with_http_info(video_id, subtitle_id, opts)
-      data
-    end
-
-    # Delete subtitle
-    # Remove a subtitle from a video using API key authentication
-    # @param video_id [String] Video ID
-    # @param subtitle_id [String] Subtitle ID
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(SubtitleDelete, Integer, Hash)>] SubtitleDelete data, response status code and response headers
-    def delete_videos_video_id_subtitles_subtitle_id_with_http_info(video_id, subtitle_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.delete_videos_video_id_subtitles_subtitle_id ...'
-      end
-      # verify the required parameter 'video_id' is set
-      if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.delete_videos_video_id_subtitles_subtitle_id"
-      end
-      # verify the required parameter 'subtitle_id' is set
-      if @api_client.config.client_side_validation && subtitle_id.nil?
-        fail ArgumentError, "Missing the required parameter 'subtitle_id' when calling VideosApi.delete_videos_video_id_subtitles_subtitle_id"
-      end
-      # resource path
-      local_var_path = '/videos/{videoId}/subtitles/{subtitleId}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s)).sub('{' + 'subtitleId' + '}', CGI.escape(subtitle_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'SubtitleDelete'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"VideosApi.delete_videos_video_id_subtitles_subtitle_id",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#delete_videos_video_id_subtitles_subtitle_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # List videos for a project
     # Retrieve all videos for a specific project, with pagination and sorting.
     # @param [Hash] opts the optional parameters
@@ -555,8 +27,8 @@ module OpenapiClient
     # @option opts [String] :sort Field to sort by (created_at, name, size, updated_at, duration)
     # @option opts [String] :order Sort order (asc, desc)
     # @return [PaginationPaginatedResponseVideo]
-    def get_videos(opts = {})
-      data, _status_code, _headers = get_videos_with_http_info(opts)
+    def videos_get(opts = {})
+      data, _status_code, _headers = videos_get_with_http_info(opts)
       data
     end
 
@@ -568,20 +40,20 @@ module OpenapiClient
     # @option opts [String] :sort Field to sort by (created_at, name, size, updated_at, duration)
     # @option opts [String] :order Sort order (asc, desc)
     # @return [Array<(PaginationPaginatedResponseVideo, Integer, Hash)>] PaginationPaginatedResponseVideo data, response status code and response headers
-    def get_videos_with_http_info(opts = {})
+    def videos_get_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.get_videos ...'
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_get ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling VideosApi.get_videos, must be smaller than or equal to 100.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling VideosApi.videos_get, must be smaller than or equal to 100.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling VideosApi.get_videos, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling VideosApi.videos_get, must be greater than or equal to 1.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling VideosApi.get_videos, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling VideosApi.videos_get, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -612,7 +84,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"VideosApi.get_videos",
+        :operation => :"VideosApi.videos_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -623,7 +95,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#get_videos\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VideosApi#videos_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -632,8 +104,8 @@ module OpenapiClient
     # Get list of supported languages for subtitles
     # @param [Hash] opts the optional parameters
     # @return [Array<InternalVideosHandlerSubtitlesLanguageResponse>]
-    def get_videos_languages(opts = {})
-      data, _status_code, _headers = get_videos_languages_with_http_info(opts)
+    def videos_languages_get(opts = {})
+      data, _status_code, _headers = videos_languages_get_with_http_info(opts)
       data
     end
 
@@ -641,9 +113,9 @@ module OpenapiClient
     # Get list of supported languages for subtitles
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<InternalVideosHandlerSubtitlesLanguageResponse>, Integer, Hash)>] Array<InternalVideosHandlerSubtitlesLanguageResponse> data, response status code and response headers
-    def get_videos_languages_with_http_info(opts = {})
+    def videos_languages_get_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.get_videos_languages ...'
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_languages_get ...'
       end
       # resource path
       local_var_path = '/videos/languages'
@@ -669,7 +141,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || []
 
       new_options = opts.merge(
-        :operation => :"VideosApi.get_videos_languages",
+        :operation => :"VideosApi.videos_languages_get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -680,96 +152,33 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#get_videos_languages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Get a video
-    # Retrieve a video by its ID for a specific project.
-    # @param video_id [String] Video ID
-    # @param [Hash] opts the optional parameters
-    # @return [Video]
-    def get_videos_video_id(video_id, opts = {})
-      data, _status_code, _headers = get_videos_video_id_with_http_info(video_id, opts)
-      data
-    end
-
-    # Get a video
-    # Retrieve a video by its ID for a specific project.
-    # @param video_id [String] Video ID
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(Video, Integer, Hash)>] Video data, response status code and response headers
-    def get_videos_video_id_with_http_info(video_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.get_videos_video_id ...'
-      end
-      # verify the required parameter 'video_id' is set
-      if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.get_videos_video_id"
-      end
-      # resource path
-      local_var_path = '/videos/{videoId}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'Video'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
-
-      new_options = opts.merge(
-        :operation => :"VideosApi.get_videos_video_id",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#get_videos_video_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VideosApi#videos_languages_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # Upload: Mark as complete
     # Mark a video upload as complete after successful upload to storage using API key authentication
-    # @param post_videos_upload_complete_request [PostVideosUploadCompleteRequest] Video upload completion request
+    # @param videos_upload_complete_post_request [VideosUploadCompletePostRequest] Video upload completion request
     # @param [Hash] opts the optional parameters
     # @return [Video]
-    def post_videos_upload_complete(post_videos_upload_complete_request, opts = {})
-      data, _status_code, _headers = post_videos_upload_complete_with_http_info(post_videos_upload_complete_request, opts)
+    def videos_upload_complete_post(videos_upload_complete_post_request, opts = {})
+      data, _status_code, _headers = videos_upload_complete_post_with_http_info(videos_upload_complete_post_request, opts)
       data
     end
 
     # Upload: Mark as complete
     # Mark a video upload as complete after successful upload to storage using API key authentication
-    # @param post_videos_upload_complete_request [PostVideosUploadCompleteRequest] Video upload completion request
+    # @param videos_upload_complete_post_request [VideosUploadCompletePostRequest] Video upload completion request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Video, Integer, Hash)>] Video data, response status code and response headers
-    def post_videos_upload_complete_with_http_info(post_videos_upload_complete_request, opts = {})
+    def videos_upload_complete_post_with_http_info(videos_upload_complete_post_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.post_videos_upload_complete ...'
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_upload_complete_post ...'
       end
-      # verify the required parameter 'post_videos_upload_complete_request' is set
-      if @api_client.config.client_side_validation && post_videos_upload_complete_request.nil?
-        fail ArgumentError, "Missing the required parameter 'post_videos_upload_complete_request' when calling VideosApi.post_videos_upload_complete"
+      # verify the required parameter 'videos_upload_complete_post_request' is set
+      if @api_client.config.client_side_validation && videos_upload_complete_post_request.nil?
+        fail ArgumentError, "Missing the required parameter 'videos_upload_complete_post_request' when calling VideosApi.videos_upload_complete_post"
       end
       # resource path
       local_var_path = '/videos/upload/complete'
@@ -791,7 +200,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(post_videos_upload_complete_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(videos_upload_complete_post_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'Video'
@@ -800,7 +209,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"VideosApi.post_videos_upload_complete",
+        :operation => :"VideosApi.videos_upload_complete_post",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -811,33 +220,33 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#post_videos_upload_complete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VideosApi#videos_upload_complete_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # Upload: Init
     # Initialize a video upload and get presigned URLs for video and poster using API key authentication
-    # @param post_videos_upload_init_request [PostVideosUploadInitRequest] Video upload initialization request
+    # @param videos_upload_init_post_request [VideosUploadInitPostRequest] Video upload initialization request
     # @param [Hash] opts the optional parameters
     # @return [GithubComQeeqezApiInternalVideosHandlerUploadInitResponse]
-    def post_videos_upload_init(post_videos_upload_init_request, opts = {})
-      data, _status_code, _headers = post_videos_upload_init_with_http_info(post_videos_upload_init_request, opts)
+    def videos_upload_init_post(videos_upload_init_post_request, opts = {})
+      data, _status_code, _headers = videos_upload_init_post_with_http_info(videos_upload_init_post_request, opts)
       data
     end
 
     # Upload: Init
     # Initialize a video upload and get presigned URLs for video and poster using API key authentication
-    # @param post_videos_upload_init_request [PostVideosUploadInitRequest] Video upload initialization request
+    # @param videos_upload_init_post_request [VideosUploadInitPostRequest] Video upload initialization request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GithubComQeeqezApiInternalVideosHandlerUploadInitResponse, Integer, Hash)>] GithubComQeeqezApiInternalVideosHandlerUploadInitResponse data, response status code and response headers
-    def post_videos_upload_init_with_http_info(post_videos_upload_init_request, opts = {})
+    def videos_upload_init_post_with_http_info(videos_upload_init_post_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.post_videos_upload_init ...'
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_upload_init_post ...'
       end
-      # verify the required parameter 'post_videos_upload_init_request' is set
-      if @api_client.config.client_side_validation && post_videos_upload_init_request.nil?
-        fail ArgumentError, "Missing the required parameter 'post_videos_upload_init_request' when calling VideosApi.post_videos_upload_init"
+      # verify the required parameter 'videos_upload_init_post_request' is set
+      if @api_client.config.client_side_validation && videos_upload_init_post_request.nil?
+        fail ArgumentError, "Missing the required parameter 'videos_upload_init_post_request' when calling VideosApi.videos_upload_init_post"
       end
       # resource path
       local_var_path = '/videos/upload/init'
@@ -859,7 +268,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(post_videos_upload_init_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(videos_upload_init_post_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'GithubComQeeqezApiInternalVideosHandlerUploadInitResponse'
@@ -868,7 +277,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"VideosApi.post_videos_upload_init",
+        :operation => :"VideosApi.videos_upload_init_post",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -879,33 +288,33 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#post_videos_upload_init\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VideosApi#videos_upload_init_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Bulk upsert video audio tracks
-    # Replace all audio tracks with the provided ones using API key authentication
+    # Delete all audio tracks
+    # Remove all additional audio tracks from a video using API key authentication
     # @param video_id [String] Video ID
     # @param [Hash] opts the optional parameters
-    # @return [Array<AudioTrack>]
-    def post_videos_video_id_audio_tracks(video_id, opts = {})
-      data, _status_code, _headers = post_videos_video_id_audio_tracks_with_http_info(video_id, opts)
+    # @return [AudioTrackDelete]
+    def videos_video_id_audio_tracks_delete(video_id, opts = {})
+      data, _status_code, _headers = videos_video_id_audio_tracks_delete_with_http_info(video_id, opts)
       data
     end
 
-    # Bulk upsert video audio tracks
-    # Replace all audio tracks with the provided ones using API key authentication
+    # Delete all audio tracks
+    # Remove all additional audio tracks from a video using API key authentication
     # @param video_id [String] Video ID
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<AudioTrack>, Integer, Hash)>] Array<AudioTrack> data, response status code and response headers
-    def post_videos_video_id_audio_tracks_with_http_info(video_id, opts = {})
+    # @return [Array<(AudioTrackDelete, Integer, Hash)>] AudioTrackDelete data, response status code and response headers
+    def videos_video_id_audio_tracks_delete_with_http_info(video_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.post_videos_video_id_audio_tracks ...'
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_audio_tracks_delete ...'
       end
       # verify the required parameter 'video_id' is set
       if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.post_videos_video_id_audio_tracks"
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_audio_tracks_delete"
       end
       # resource path
       local_var_path = '/videos/{videoId}/audio-tracks'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
@@ -917,11 +326,6 @@ module OpenapiClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/x-www-form-urlencoded', 'multipart/form-data'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -930,13 +334,13 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Array<AudioTrack>'
+      return_type = opts[:debug_return_type] || 'AudioTrackDelete'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"VideosApi.post_videos_video_id_audio_tracks",
+        :operation => :"VideosApi.videos_video_id_audio_tracks_delete",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -945,38 +349,44 @@ module OpenapiClient
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#post_videos_video_id_audio_tracks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_audio_tracks_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Bulk upsert video subtitles
-    # Replace all subtitles with the provided ones using API key authentication
+    # Delete audio track by language
+    # Remove an audio track for a specific language using API key authentication
     # @param video_id [String] Video ID
+    # @param lang_code [String] Language Code (BCP 47)
     # @param [Hash] opts the optional parameters
-    # @return [Array<Subtitle>]
-    def post_videos_video_id_subtitles(video_id, opts = {})
-      data, _status_code, _headers = post_videos_video_id_subtitles_with_http_info(video_id, opts)
+    # @return [AudioTrackDelete]
+    def videos_video_id_audio_tracks_lang_code_delete(video_id, lang_code, opts = {})
+      data, _status_code, _headers = videos_video_id_audio_tracks_lang_code_delete_with_http_info(video_id, lang_code, opts)
       data
     end
 
-    # Bulk upsert video subtitles
-    # Replace all subtitles with the provided ones using API key authentication
+    # Delete audio track by language
+    # Remove an audio track for a specific language using API key authentication
     # @param video_id [String] Video ID
+    # @param lang_code [String] Language Code (BCP 47)
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<Subtitle>, Integer, Hash)>] Array<Subtitle> data, response status code and response headers
-    def post_videos_video_id_subtitles_with_http_info(video_id, opts = {})
+    # @return [Array<(AudioTrackDelete, Integer, Hash)>] AudioTrackDelete data, response status code and response headers
+    def videos_video_id_audio_tracks_lang_code_delete_with_http_info(video_id, lang_code, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.post_videos_video_id_subtitles ...'
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_audio_tracks_lang_code_delete ...'
       end
       # verify the required parameter 'video_id' is set
       if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.post_videos_video_id_subtitles"
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_audio_tracks_lang_code_delete"
+      end
+      # verify the required parameter 'lang_code' is set
+      if @api_client.config.client_side_validation && lang_code.nil?
+        fail ArgumentError, "Missing the required parameter 'lang_code' when calling VideosApi.videos_video_id_audio_tracks_lang_code_delete"
       end
       # resource path
-      local_var_path = '/videos/{videoId}/subtitles'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
+      local_var_path = '/videos/{videoId}/audio-tracks/{lang_code}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s)).sub('{' + 'lang_code' + '}', CGI.escape(lang_code.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -985,11 +395,6 @@ module OpenapiClient
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/x-www-form-urlencoded', 'multipart/form-data'])
-      if !content_type.nil?
-          header_params['Content-Type'] = content_type
-      end
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -998,13 +403,13 @@ module OpenapiClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Array<Subtitle>'
+      return_type = opts[:debug_return_type] || 'AudioTrackDelete'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"VideosApi.post_videos_video_id_subtitles",
+        :operation => :"VideosApi.videos_video_id_audio_tracks_lang_code_delete",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1013,9 +418,9 @@ module OpenapiClient
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#post_videos_video_id_subtitles\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_audio_tracks_lang_code_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1026,8 +431,8 @@ module OpenapiClient
     # @param lang_code [String] Language Code (BCP 47)
     # @param [Hash] opts the optional parameters
     # @return [AudioTrack]
-    def put_videos_video_id_audio_tracks_lang_code(video_id, lang_code, opts = {})
-      data, _status_code, _headers = put_videos_video_id_audio_tracks_lang_code_with_http_info(video_id, lang_code, opts)
+    def videos_video_id_audio_tracks_lang_code_put(video_id, lang_code, opts = {})
+      data, _status_code, _headers = videos_video_id_audio_tracks_lang_code_put_with_http_info(video_id, lang_code, opts)
       data
     end
 
@@ -1037,17 +442,17 @@ module OpenapiClient
     # @param lang_code [String] Language Code (BCP 47)
     # @param [Hash] opts the optional parameters
     # @return [Array<(AudioTrack, Integer, Hash)>] AudioTrack data, response status code and response headers
-    def put_videos_video_id_audio_tracks_lang_code_with_http_info(video_id, lang_code, opts = {})
+    def videos_video_id_audio_tracks_lang_code_put_with_http_info(video_id, lang_code, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.put_videos_video_id_audio_tracks_lang_code ...'
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_audio_tracks_lang_code_put ...'
       end
       # verify the required parameter 'video_id' is set
       if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.put_videos_video_id_audio_tracks_lang_code"
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_audio_tracks_lang_code_put"
       end
       # verify the required parameter 'lang_code' is set
       if @api_client.config.client_side_validation && lang_code.nil?
-        fail ArgumentError, "Missing the required parameter 'lang_code' when calling VideosApi.put_videos_video_id_audio_tracks_lang_code"
+        fail ArgumentError, "Missing the required parameter 'lang_code' when calling VideosApi.videos_video_id_audio_tracks_lang_code_put"
       end
       # resource path
       local_var_path = '/videos/{videoId}/audio-tracks/{lang_code}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s)).sub('{' + 'lang_code' + '}', CGI.escape(lang_code.to_s))
@@ -1078,7 +483,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"VideosApi.put_videos_video_id_audio_tracks_lang_code",
+        :operation => :"VideosApi.videos_video_id_audio_tracks_lang_code_put",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1089,7 +494,207 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#put_videos_video_id_audio_tracks_lang_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_audio_tracks_lang_code_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Bulk upsert video audio tracks
+    # Replace all audio tracks with the provided ones using API key authentication
+    # @param video_id [String] Video ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<AudioTrack>]
+    def videos_video_id_audio_tracks_post(video_id, opts = {})
+      data, _status_code, _headers = videos_video_id_audio_tracks_post_with_http_info(video_id, opts)
+      data
+    end
+
+    # Bulk upsert video audio tracks
+    # Replace all audio tracks with the provided ones using API key authentication
+    # @param video_id [String] Video ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<AudioTrack>, Integer, Hash)>] Array<AudioTrack> data, response status code and response headers
+    def videos_video_id_audio_tracks_post_with_http_info(video_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_audio_tracks_post ...'
+      end
+      # verify the required parameter 'video_id' is set
+      if @api_client.config.client_side_validation && video_id.nil?
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_audio_tracks_post"
+      end
+      # resource path
+      local_var_path = '/videos/{videoId}/audio-tracks'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/x-www-form-urlencoded', 'multipart/form-data'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<AudioTrack>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"VideosApi.videos_video_id_audio_tracks_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_audio_tracks_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete audio track
+    # Remove an additional audio track from a video using API key authentication
+    # @param video_id [String] Video ID
+    # @param track_id [String] Audio Track ID
+    # @param [Hash] opts the optional parameters
+    # @return [AudioTrackDelete]
+    def videos_video_id_audio_tracks_track_id_delete(video_id, track_id, opts = {})
+      data, _status_code, _headers = videos_video_id_audio_tracks_track_id_delete_with_http_info(video_id, track_id, opts)
+      data
+    end
+
+    # Delete audio track
+    # Remove an additional audio track from a video using API key authentication
+    # @param video_id [String] Video ID
+    # @param track_id [String] Audio Track ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(AudioTrackDelete, Integer, Hash)>] AudioTrackDelete data, response status code and response headers
+    def videos_video_id_audio_tracks_track_id_delete_with_http_info(video_id, track_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_audio_tracks_track_id_delete ...'
+      end
+      # verify the required parameter 'video_id' is set
+      if @api_client.config.client_side_validation && video_id.nil?
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_audio_tracks_track_id_delete"
+      end
+      # verify the required parameter 'track_id' is set
+      if @api_client.config.client_side_validation && track_id.nil?
+        fail ArgumentError, "Missing the required parameter 'track_id' when calling VideosApi.videos_video_id_audio_tracks_track_id_delete"
+      end
+      # resource path
+      local_var_path = '/videos/{videoId}/audio-tracks/{trackId}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s)).sub('{' + 'trackId' + '}', CGI.escape(track_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AudioTrackDelete'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"VideosApi.videos_video_id_audio_tracks_track_id_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_audio_tracks_track_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete video chapters
+    # Remove all chapters from a video using API key authentication
+    # @param video_id [String] Video ID
+    # @param [Hash] opts the optional parameters
+    # @return [UpdateChaptersResponse]
+    def videos_video_id_chapters_delete(video_id, opts = {})
+      data, _status_code, _headers = videos_video_id_chapters_delete_with_http_info(video_id, opts)
+      data
+    end
+
+    # Delete video chapters
+    # Remove all chapters from a video using API key authentication
+    # @param video_id [String] Video ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(UpdateChaptersResponse, Integer, Hash)>] UpdateChaptersResponse data, response status code and response headers
+    def videos_video_id_chapters_delete_with_http_info(video_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_chapters_delete ...'
+      end
+      # verify the required parameter 'video_id' is set
+      if @api_client.config.client_side_validation && video_id.nil?
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_chapters_delete"
+      end
+      # resource path
+      local_var_path = '/videos/{videoId}/chapters'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'UpdateChaptersResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"VideosApi.videos_video_id_chapters_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_chapters_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1097,31 +702,31 @@ module OpenapiClient
     # Update video chapters
     # Replace all chapters for a video (atomic PUT operation) using API key authentication
     # @param video_id [String] Video ID
-    # @param put_videos_video_id_chapters_request [PutVideosVideoIdChaptersRequest] Chapters array
+    # @param videos_video_id_chapters_put_request [VideosVideoIdChaptersPutRequest] Chapters array
     # @param [Hash] opts the optional parameters
     # @return [UpdateChaptersResponse]
-    def put_videos_video_id_chapters(video_id, put_videos_video_id_chapters_request, opts = {})
-      data, _status_code, _headers = put_videos_video_id_chapters_with_http_info(video_id, put_videos_video_id_chapters_request, opts)
+    def videos_video_id_chapters_put(video_id, videos_video_id_chapters_put_request, opts = {})
+      data, _status_code, _headers = videos_video_id_chapters_put_with_http_info(video_id, videos_video_id_chapters_put_request, opts)
       data
     end
 
     # Update video chapters
     # Replace all chapters for a video (atomic PUT operation) using API key authentication
     # @param video_id [String] Video ID
-    # @param put_videos_video_id_chapters_request [PutVideosVideoIdChaptersRequest] Chapters array
+    # @param videos_video_id_chapters_put_request [VideosVideoIdChaptersPutRequest] Chapters array
     # @param [Hash] opts the optional parameters
     # @return [Array<(UpdateChaptersResponse, Integer, Hash)>] UpdateChaptersResponse data, response status code and response headers
-    def put_videos_video_id_chapters_with_http_info(video_id, put_videos_video_id_chapters_request, opts = {})
+    def videos_video_id_chapters_put_with_http_info(video_id, videos_video_id_chapters_put_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.put_videos_video_id_chapters ...'
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_chapters_put ...'
       end
       # verify the required parameter 'video_id' is set
       if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.put_videos_video_id_chapters"
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_chapters_put"
       end
-      # verify the required parameter 'put_videos_video_id_chapters_request' is set
-      if @api_client.config.client_side_validation && put_videos_video_id_chapters_request.nil?
-        fail ArgumentError, "Missing the required parameter 'put_videos_video_id_chapters_request' when calling VideosApi.put_videos_video_id_chapters"
+      # verify the required parameter 'videos_video_id_chapters_put_request' is set
+      if @api_client.config.client_side_validation && videos_video_id_chapters_put_request.nil?
+        fail ArgumentError, "Missing the required parameter 'videos_video_id_chapters_put_request' when calling VideosApi.videos_video_id_chapters_put"
       end
       # resource path
       local_var_path = '/videos/{videoId}/chapters'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
@@ -1143,7 +748,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(put_videos_video_id_chapters_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(videos_video_id_chapters_put_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'UpdateChaptersResponse'
@@ -1152,7 +757,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"VideosApi.put_videos_video_id_chapters",
+        :operation => :"VideosApi.videos_video_id_chapters_put",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1163,7 +768,265 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#put_videos_video_id_chapters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_chapters_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete video
+    # Delete a video by its ID within a project
+    # @param video_id [String] Video ID
+    # @param [Hash] opts the optional parameters
+    # @return [nil]
+    def videos_video_id_delete_delete(video_id, opts = {})
+      videos_video_id_delete_delete_with_http_info(video_id, opts)
+      nil
+    end
+
+    # Delete video
+    # Delete a video by its ID within a project
+    # @param video_id [String] Video ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
+    def videos_video_id_delete_delete_with_http_info(video_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_delete_delete ...'
+      end
+      # verify the required parameter 'video_id' is set
+      if @api_client.config.client_side_validation && video_id.nil?
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_delete_delete"
+      end
+      # resource path
+      local_var_path = '/videos/{videoId}/delete'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"VideosApi.videos_video_id_delete_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_delete_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get a video
+    # Retrieve a video by its ID for a specific project.
+    # @param video_id [String] Video ID
+    # @param [Hash] opts the optional parameters
+    # @return [Video]
+    def videos_video_id_get(video_id, opts = {})
+      data, _status_code, _headers = videos_video_id_get_with_http_info(video_id, opts)
+      data
+    end
+
+    # Get a video
+    # Retrieve a video by its ID for a specific project.
+    # @param video_id [String] Video ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Video, Integer, Hash)>] Video data, response status code and response headers
+    def videos_video_id_get_with_http_info(video_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_get ...'
+      end
+      # verify the required parameter 'video_id' is set
+      if @api_client.config.client_side_validation && video_id.nil?
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_get"
+      end
+      # resource path
+      local_var_path = '/videos/{videoId}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Video'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"VideosApi.videos_video_id_get",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete all subtitles
+    # Remove all subtitles from a video using API key authentication
+    # @param video_id [String] Video ID
+    # @param [Hash] opts the optional parameters
+    # @return [SubtitleDelete]
+    def videos_video_id_subtitles_delete(video_id, opts = {})
+      data, _status_code, _headers = videos_video_id_subtitles_delete_with_http_info(video_id, opts)
+      data
+    end
+
+    # Delete all subtitles
+    # Remove all subtitles from a video using API key authentication
+    # @param video_id [String] Video ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SubtitleDelete, Integer, Hash)>] SubtitleDelete data, response status code and response headers
+    def videos_video_id_subtitles_delete_with_http_info(video_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_subtitles_delete ...'
+      end
+      # verify the required parameter 'video_id' is set
+      if @api_client.config.client_side_validation && video_id.nil?
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_subtitles_delete"
+      end
+      # resource path
+      local_var_path = '/videos/{videoId}/subtitles'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SubtitleDelete'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"VideosApi.videos_video_id_subtitles_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_subtitles_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete subtitle by language
+    # Remove a subtitle for a specific language using API key authentication
+    # @param video_id [String] Video ID
+    # @param lang_code [String] Language Code (BCP 47)
+    # @param [Hash] opts the optional parameters
+    # @return [SubtitleDelete]
+    def videos_video_id_subtitles_lang_code_delete(video_id, lang_code, opts = {})
+      data, _status_code, _headers = videos_video_id_subtitles_lang_code_delete_with_http_info(video_id, lang_code, opts)
+      data
+    end
+
+    # Delete subtitle by language
+    # Remove a subtitle for a specific language using API key authentication
+    # @param video_id [String] Video ID
+    # @param lang_code [String] Language Code (BCP 47)
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SubtitleDelete, Integer, Hash)>] SubtitleDelete data, response status code and response headers
+    def videos_video_id_subtitles_lang_code_delete_with_http_info(video_id, lang_code, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_subtitles_lang_code_delete ...'
+      end
+      # verify the required parameter 'video_id' is set
+      if @api_client.config.client_side_validation && video_id.nil?
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_subtitles_lang_code_delete"
+      end
+      # verify the required parameter 'lang_code' is set
+      if @api_client.config.client_side_validation && lang_code.nil?
+        fail ArgumentError, "Missing the required parameter 'lang_code' when calling VideosApi.videos_video_id_subtitles_lang_code_delete"
+      end
+      # resource path
+      local_var_path = '/videos/{videoId}/subtitles/{lang_code}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s)).sub('{' + 'lang_code' + '}', CGI.escape(lang_code.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SubtitleDelete'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"VideosApi.videos_video_id_subtitles_lang_code_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_subtitles_lang_code_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1174,8 +1037,8 @@ module OpenapiClient
     # @param lang_code [String] Language Code (BCP 47)
     # @param [Hash] opts the optional parameters
     # @return [Subtitle]
-    def put_videos_video_id_subtitles_lang_code(video_id, lang_code, opts = {})
-      data, _status_code, _headers = put_videos_video_id_subtitles_lang_code_with_http_info(video_id, lang_code, opts)
+    def videos_video_id_subtitles_lang_code_put(video_id, lang_code, opts = {})
+      data, _status_code, _headers = videos_video_id_subtitles_lang_code_put_with_http_info(video_id, lang_code, opts)
       data
     end
 
@@ -1185,17 +1048,17 @@ module OpenapiClient
     # @param lang_code [String] Language Code (BCP 47)
     # @param [Hash] opts the optional parameters
     # @return [Array<(Subtitle, Integer, Hash)>] Subtitle data, response status code and response headers
-    def put_videos_video_id_subtitles_lang_code_with_http_info(video_id, lang_code, opts = {})
+    def videos_video_id_subtitles_lang_code_put_with_http_info(video_id, lang_code, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.put_videos_video_id_subtitles_lang_code ...'
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_subtitles_lang_code_put ...'
       end
       # verify the required parameter 'video_id' is set
       if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.put_videos_video_id_subtitles_lang_code"
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_subtitles_lang_code_put"
       end
       # verify the required parameter 'lang_code' is set
       if @api_client.config.client_side_validation && lang_code.nil?
-        fail ArgumentError, "Missing the required parameter 'lang_code' when calling VideosApi.put_videos_video_id_subtitles_lang_code"
+        fail ArgumentError, "Missing the required parameter 'lang_code' when calling VideosApi.videos_video_id_subtitles_lang_code_put"
       end
       # resource path
       local_var_path = '/videos/{videoId}/subtitles/{lang_code}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s)).sub('{' + 'lang_code' + '}', CGI.escape(lang_code.to_s))
@@ -1226,7 +1089,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"VideosApi.put_videos_video_id_subtitles_lang_code",
+        :operation => :"VideosApi.videos_video_id_subtitles_lang_code_put",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1237,7 +1100,144 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#put_videos_video_id_subtitles_lang_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_subtitles_lang_code_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Bulk upsert video subtitles
+    # Replace all subtitles with the provided ones using API key authentication
+    # @param video_id [String] Video ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<Subtitle>]
+    def videos_video_id_subtitles_post(video_id, opts = {})
+      data, _status_code, _headers = videos_video_id_subtitles_post_with_http_info(video_id, opts)
+      data
+    end
+
+    # Bulk upsert video subtitles
+    # Replace all subtitles with the provided ones using API key authentication
+    # @param video_id [String] Video ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Array<Subtitle>, Integer, Hash)>] Array<Subtitle> data, response status code and response headers
+    def videos_video_id_subtitles_post_with_http_info(video_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_subtitles_post ...'
+      end
+      # verify the required parameter 'video_id' is set
+      if @api_client.config.client_side_validation && video_id.nil?
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_subtitles_post"
+      end
+      # resource path
+      local_var_path = '/videos/{videoId}/subtitles'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/x-www-form-urlencoded', 'multipart/form-data'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<Subtitle>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"VideosApi.videos_video_id_subtitles_post",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_subtitles_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Delete subtitle
+    # Remove a subtitle from a video using API key authentication
+    # @param video_id [String] Video ID
+    # @param subtitle_id [String] Subtitle ID
+    # @param [Hash] opts the optional parameters
+    # @return [SubtitleDelete]
+    def videos_video_id_subtitles_subtitle_id_delete(video_id, subtitle_id, opts = {})
+      data, _status_code, _headers = videos_video_id_subtitles_subtitle_id_delete_with_http_info(video_id, subtitle_id, opts)
+      data
+    end
+
+    # Delete subtitle
+    # Remove a subtitle from a video using API key authentication
+    # @param video_id [String] Video ID
+    # @param subtitle_id [String] Subtitle ID
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(SubtitleDelete, Integer, Hash)>] SubtitleDelete data, response status code and response headers
+    def videos_video_id_subtitles_subtitle_id_delete_with_http_info(video_id, subtitle_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_subtitles_subtitle_id_delete ...'
+      end
+      # verify the required parameter 'video_id' is set
+      if @api_client.config.client_side_validation && video_id.nil?
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_subtitles_subtitle_id_delete"
+      end
+      # verify the required parameter 'subtitle_id' is set
+      if @api_client.config.client_side_validation && subtitle_id.nil?
+        fail ArgumentError, "Missing the required parameter 'subtitle_id' when calling VideosApi.videos_video_id_subtitles_subtitle_id_delete"
+      end
+      # resource path
+      local_var_path = '/videos/{videoId}/subtitles/{subtitleId}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s)).sub('{' + 'subtitleId' + '}', CGI.escape(subtitle_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'SubtitleDelete'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
+
+      new_options = opts.merge(
+        :operation => :"VideosApi.videos_video_id_subtitles_subtitle_id_delete",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_subtitles_subtitle_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1247,8 +1247,8 @@ module OpenapiClient
     # @param video_id [String] Video ID
     # @param [Hash] opts the optional parameters
     # @return [Video]
-    def put_videos_video_id_thumbnail(video_id, opts = {})
-      data, _status_code, _headers = put_videos_video_id_thumbnail_with_http_info(video_id, opts)
+    def videos_video_id_thumbnail_put(video_id, opts = {})
+      data, _status_code, _headers = videos_video_id_thumbnail_put_with_http_info(video_id, opts)
       data
     end
 
@@ -1257,13 +1257,13 @@ module OpenapiClient
     # @param video_id [String] Video ID
     # @param [Hash] opts the optional parameters
     # @return [Array<(Video, Integer, Hash)>] Video data, response status code and response headers
-    def put_videos_video_id_thumbnail_with_http_info(video_id, opts = {})
+    def videos_video_id_thumbnail_put_with_http_info(video_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: VideosApi.put_videos_video_id_thumbnail ...'
+        @api_client.config.logger.debug 'Calling API: VideosApi.videos_video_id_thumbnail_put ...'
       end
       # verify the required parameter 'video_id' is set
       if @api_client.config.client_side_validation && video_id.nil?
-        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.put_videos_video_id_thumbnail"
+        fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.videos_video_id_thumbnail_put"
       end
       # resource path
       local_var_path = '/videos/{videoId}/thumbnail'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
@@ -1294,7 +1294,7 @@ module OpenapiClient
       auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
-        :operation => :"VideosApi.put_videos_video_id_thumbnail",
+        :operation => :"VideosApi.videos_video_id_thumbnail_put",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1305,7 +1305,7 @@ module OpenapiClient
 
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: VideosApi#put_videos_video_id_thumbnail\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: VideosApi#videos_video_id_thumbnail_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
