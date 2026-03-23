@@ -51,7 +51,7 @@ module OpenapiClient
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*']) unless header_params['Accept']
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -120,7 +120,7 @@ module OpenapiClient
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*']) unless header_params['Accept']
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -189,7 +189,7 @@ module OpenapiClient
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*']) unless header_params['Accept']
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -315,7 +315,7 @@ module OpenapiClient
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*']) unless header_params['Accept']
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -378,7 +378,7 @@ module OpenapiClient
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*']) unless header_params['Accept']
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -447,7 +447,7 @@ module OpenapiClient
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*']) unless header_params['Accept']
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -516,7 +516,7 @@ module OpenapiClient
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*']) unless header_params['Accept']
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -750,26 +750,26 @@ module OpenapiClient
 
     # Upload: Mark as complete
     # Mark a video upload as complete after successful upload to storage using API key authentication
-    # @param request [GithubComQeeqezApiInternalVideosHandlerUploadCompleteRequest] Video upload completion request
+    # @param post_videos_upload_complete_request [PostVideosUploadCompleteRequest] Video upload completion request
     # @param [Hash] opts the optional parameters
     # @return [Video]
-    def post_videos_upload_complete(request, opts = {})
-      data, _status_code, _headers = post_videos_upload_complete_with_http_info(request, opts)
+    def post_videos_upload_complete(post_videos_upload_complete_request, opts = {})
+      data, _status_code, _headers = post_videos_upload_complete_with_http_info(post_videos_upload_complete_request, opts)
       data
     end
 
     # Upload: Mark as complete
     # Mark a video upload as complete after successful upload to storage using API key authentication
-    # @param request [GithubComQeeqezApiInternalVideosHandlerUploadCompleteRequest] Video upload completion request
+    # @param post_videos_upload_complete_request [PostVideosUploadCompleteRequest] Video upload completion request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Video, Integer, Hash)>] Video data, response status code and response headers
-    def post_videos_upload_complete_with_http_info(request, opts = {})
+    def post_videos_upload_complete_with_http_info(post_videos_upload_complete_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VideosApi.post_videos_upload_complete ...'
       end
-      # verify the required parameter 'request' is set
-      if @api_client.config.client_side_validation && request.nil?
-        fail ArgumentError, "Missing the required parameter 'request' when calling VideosApi.post_videos_upload_complete"
+      # verify the required parameter 'post_videos_upload_complete_request' is set
+      if @api_client.config.client_side_validation && post_videos_upload_complete_request.nil?
+        fail ArgumentError, "Missing the required parameter 'post_videos_upload_complete_request' when calling VideosApi.post_videos_upload_complete"
       end
       # resource path
       local_var_path = '/videos/upload/complete'
@@ -791,7 +791,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(post_videos_upload_complete_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'Video'
@@ -818,26 +818,26 @@ module OpenapiClient
 
     # Upload: Init
     # Initialize a video upload and get presigned URLs for video and poster using API key authentication
-    # @param request [VideoUploadInitRequest] Video upload initialization request
+    # @param post_videos_upload_init_request [PostVideosUploadInitRequest] Video upload initialization request
     # @param [Hash] opts the optional parameters
     # @return [GithubComQeeqezApiInternalVideosHandlerUploadInitResponse]
-    def post_videos_upload_init(request, opts = {})
-      data, _status_code, _headers = post_videos_upload_init_with_http_info(request, opts)
+    def post_videos_upload_init(post_videos_upload_init_request, opts = {})
+      data, _status_code, _headers = post_videos_upload_init_with_http_info(post_videos_upload_init_request, opts)
       data
     end
 
     # Upload: Init
     # Initialize a video upload and get presigned URLs for video and poster using API key authentication
-    # @param request [VideoUploadInitRequest] Video upload initialization request
+    # @param post_videos_upload_init_request [PostVideosUploadInitRequest] Video upload initialization request
     # @param [Hash] opts the optional parameters
     # @return [Array<(GithubComQeeqezApiInternalVideosHandlerUploadInitResponse, Integer, Hash)>] GithubComQeeqezApiInternalVideosHandlerUploadInitResponse data, response status code and response headers
-    def post_videos_upload_init_with_http_info(request, opts = {})
+    def post_videos_upload_init_with_http_info(post_videos_upload_init_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VideosApi.post_videos_upload_init ...'
       end
-      # verify the required parameter 'request' is set
-      if @api_client.config.client_side_validation && request.nil?
-        fail ArgumentError, "Missing the required parameter 'request' when calling VideosApi.post_videos_upload_init"
+      # verify the required parameter 'post_videos_upload_init_request' is set
+      if @api_client.config.client_side_validation && post_videos_upload_init_request.nil?
+        fail ArgumentError, "Missing the required parameter 'post_videos_upload_init_request' when calling VideosApi.post_videos_upload_init"
       end
       # resource path
       local_var_path = '/videos/upload/init'
@@ -859,7 +859,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(post_videos_upload_init_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'GithubComQeeqezApiInternalVideosHandlerUploadInitResponse'
@@ -887,43 +887,25 @@ module OpenapiClient
     # Bulk upsert video audio tracks
     # Replace all audio tracks with the provided ones using API key authentication
     # @param video_id [String] Video ID
-    # @param files [Array<File>] Audio files (.mp3, .opus, .flac, .wav, .ac3, .m4a, .aac)
-    # @param language_codes [String] Comma-separated language codes
-    # @param labels [String] Comma-separated labels
     # @param [Hash] opts the optional parameters
     # @return [Array<AudioTrack>]
-    def post_videos_video_id_audio_tracks(video_id, files, language_codes, labels, opts = {})
-      data, _status_code, _headers = post_videos_video_id_audio_tracks_with_http_info(video_id, files, language_codes, labels, opts)
+    def post_videos_video_id_audio_tracks(video_id, opts = {})
+      data, _status_code, _headers = post_videos_video_id_audio_tracks_with_http_info(video_id, opts)
       data
     end
 
     # Bulk upsert video audio tracks
     # Replace all audio tracks with the provided ones using API key authentication
     # @param video_id [String] Video ID
-    # @param files [Array<File>] Audio files (.mp3, .opus, .flac, .wav, .ac3, .m4a, .aac)
-    # @param language_codes [String] Comma-separated language codes
-    # @param labels [String] Comma-separated labels
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<AudioTrack>, Integer, Hash)>] Array<AudioTrack> data, response status code and response headers
-    def post_videos_video_id_audio_tracks_with_http_info(video_id, files, language_codes, labels, opts = {})
+    def post_videos_video_id_audio_tracks_with_http_info(video_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VideosApi.post_videos_video_id_audio_tracks ...'
       end
       # verify the required parameter 'video_id' is set
       if @api_client.config.client_side_validation && video_id.nil?
         fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.post_videos_video_id_audio_tracks"
-      end
-      # verify the required parameter 'files' is set
-      if @api_client.config.client_side_validation && files.nil?
-        fail ArgumentError, "Missing the required parameter 'files' when calling VideosApi.post_videos_video_id_audio_tracks"
-      end
-      # verify the required parameter 'language_codes' is set
-      if @api_client.config.client_side_validation && language_codes.nil?
-        fail ArgumentError, "Missing the required parameter 'language_codes' when calling VideosApi.post_videos_video_id_audio_tracks"
-      end
-      # verify the required parameter 'labels' is set
-      if @api_client.config.client_side_validation && labels.nil?
-        fail ArgumentError, "Missing the required parameter 'labels' when calling VideosApi.post_videos_video_id_audio_tracks"
       end
       # resource path
       local_var_path = '/videos/{videoId}/audio-tracks'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
@@ -936,16 +918,13 @@ module OpenapiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
       # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      content_type = @api_client.select_header_content_type(['application/x-www-form-urlencoded', 'multipart/form-data'])
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
 
       # form parameters
       form_params = opts[:form_params] || {}
-      form_params['files'] = @api_client.build_collection_param(files, :csv)
-      form_params['language_codes'] = language_codes
-      form_params['labels'] = labels
 
       # http body (model)
       post_body = opts[:debug_body]
@@ -976,43 +955,25 @@ module OpenapiClient
     # Bulk upsert video subtitles
     # Replace all subtitles with the provided ones using API key authentication
     # @param video_id [String] Video ID
-    # @param files [Array<File>] Subtitle files (.srt or .vtt)
-    # @param language_codes [String] Comma-separated language codes
-    # @param labels [String] Comma-separated labels
     # @param [Hash] opts the optional parameters
     # @return [Array<Subtitle>]
-    def post_videos_video_id_subtitles(video_id, files, language_codes, labels, opts = {})
-      data, _status_code, _headers = post_videos_video_id_subtitles_with_http_info(video_id, files, language_codes, labels, opts)
+    def post_videos_video_id_subtitles(video_id, opts = {})
+      data, _status_code, _headers = post_videos_video_id_subtitles_with_http_info(video_id, opts)
       data
     end
 
     # Bulk upsert video subtitles
     # Replace all subtitles with the provided ones using API key authentication
     # @param video_id [String] Video ID
-    # @param files [Array<File>] Subtitle files (.srt or .vtt)
-    # @param language_codes [String] Comma-separated language codes
-    # @param labels [String] Comma-separated labels
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<Subtitle>, Integer, Hash)>] Array<Subtitle> data, response status code and response headers
-    def post_videos_video_id_subtitles_with_http_info(video_id, files, language_codes, labels, opts = {})
+    def post_videos_video_id_subtitles_with_http_info(video_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VideosApi.post_videos_video_id_subtitles ...'
       end
       # verify the required parameter 'video_id' is set
       if @api_client.config.client_side_validation && video_id.nil?
         fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.post_videos_video_id_subtitles"
-      end
-      # verify the required parameter 'files' is set
-      if @api_client.config.client_side_validation && files.nil?
-        fail ArgumentError, "Missing the required parameter 'files' when calling VideosApi.post_videos_video_id_subtitles"
-      end
-      # verify the required parameter 'language_codes' is set
-      if @api_client.config.client_side_validation && language_codes.nil?
-        fail ArgumentError, "Missing the required parameter 'language_codes' when calling VideosApi.post_videos_video_id_subtitles"
-      end
-      # verify the required parameter 'labels' is set
-      if @api_client.config.client_side_validation && labels.nil?
-        fail ArgumentError, "Missing the required parameter 'labels' when calling VideosApi.post_videos_video_id_subtitles"
       end
       # resource path
       local_var_path = '/videos/{videoId}/subtitles'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
@@ -1025,16 +986,13 @@ module OpenapiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
       # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      content_type = @api_client.select_header_content_type(['application/x-www-form-urlencoded', 'multipart/form-data'])
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
 
       # form parameters
       form_params = opts[:form_params] || {}
-      form_params['files'] = @api_client.build_collection_param(files, :csv)
-      form_params['language_codes'] = language_codes
-      form_params['labels'] = labels
 
       # http body (model)
       post_body = opts[:debug_body]
@@ -1066,12 +1024,10 @@ module OpenapiClient
     # Add or replace an audio track for a specific language using API key authentication
     # @param video_id [String] Video ID
     # @param lang_code [String] Language Code (BCP 47)
-    # @param file [File] Audio file (.mp3, .opus, .flac, .wav, .ac3, .m4a, .aac)
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :label Label (e.g. English)
     # @return [AudioTrack]
-    def put_videos_video_id_audio_tracks_lang_code(video_id, lang_code, file, opts = {})
-      data, _status_code, _headers = put_videos_video_id_audio_tracks_lang_code_with_http_info(video_id, lang_code, file, opts)
+    def put_videos_video_id_audio_tracks_lang_code(video_id, lang_code, opts = {})
+      data, _status_code, _headers = put_videos_video_id_audio_tracks_lang_code_with_http_info(video_id, lang_code, opts)
       data
     end
 
@@ -1079,11 +1035,9 @@ module OpenapiClient
     # Add or replace an audio track for a specific language using API key authentication
     # @param video_id [String] Video ID
     # @param lang_code [String] Language Code (BCP 47)
-    # @param file [File] Audio file (.mp3, .opus, .flac, .wav, .ac3, .m4a, .aac)
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :label Label (e.g. English)
     # @return [Array<(AudioTrack, Integer, Hash)>] AudioTrack data, response status code and response headers
-    def put_videos_video_id_audio_tracks_lang_code_with_http_info(video_id, lang_code, file, opts = {})
+    def put_videos_video_id_audio_tracks_lang_code_with_http_info(video_id, lang_code, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VideosApi.put_videos_video_id_audio_tracks_lang_code ...'
       end
@@ -1094,10 +1048,6 @@ module OpenapiClient
       # verify the required parameter 'lang_code' is set
       if @api_client.config.client_side_validation && lang_code.nil?
         fail ArgumentError, "Missing the required parameter 'lang_code' when calling VideosApi.put_videos_video_id_audio_tracks_lang_code"
-      end
-      # verify the required parameter 'file' is set
-      if @api_client.config.client_side_validation && file.nil?
-        fail ArgumentError, "Missing the required parameter 'file' when calling VideosApi.put_videos_video_id_audio_tracks_lang_code"
       end
       # resource path
       local_var_path = '/videos/{videoId}/audio-tracks/{lang_code}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s)).sub('{' + 'lang_code' + '}', CGI.escape(lang_code.to_s))
@@ -1110,15 +1060,13 @@ module OpenapiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
       # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      content_type = @api_client.select_header_content_type(['application/x-www-form-urlencoded', 'multipart/form-data'])
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
 
       # form parameters
       form_params = opts[:form_params] || {}
-      form_params['file'] = file
-      form_params['label'] = opts[:'label'] if !opts[:'label'].nil?
 
       # http body (model)
       post_body = opts[:debug_body]
@@ -1149,21 +1097,21 @@ module OpenapiClient
     # Update video chapters
     # Replace all chapters for a video (atomic PUT operation) using API key authentication
     # @param video_id [String] Video ID
-    # @param request [UpdateChaptersRequest] Chapters array
+    # @param put_videos_video_id_chapters_request [PutVideosVideoIdChaptersRequest] Chapters array
     # @param [Hash] opts the optional parameters
     # @return [UpdateChaptersResponse]
-    def put_videos_video_id_chapters(video_id, request, opts = {})
-      data, _status_code, _headers = put_videos_video_id_chapters_with_http_info(video_id, request, opts)
+    def put_videos_video_id_chapters(video_id, put_videos_video_id_chapters_request, opts = {})
+      data, _status_code, _headers = put_videos_video_id_chapters_with_http_info(video_id, put_videos_video_id_chapters_request, opts)
       data
     end
 
     # Update video chapters
     # Replace all chapters for a video (atomic PUT operation) using API key authentication
     # @param video_id [String] Video ID
-    # @param request [UpdateChaptersRequest] Chapters array
+    # @param put_videos_video_id_chapters_request [PutVideosVideoIdChaptersRequest] Chapters array
     # @param [Hash] opts the optional parameters
     # @return [Array<(UpdateChaptersResponse, Integer, Hash)>] UpdateChaptersResponse data, response status code and response headers
-    def put_videos_video_id_chapters_with_http_info(video_id, request, opts = {})
+    def put_videos_video_id_chapters_with_http_info(video_id, put_videos_video_id_chapters_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VideosApi.put_videos_video_id_chapters ...'
       end
@@ -1171,9 +1119,9 @@ module OpenapiClient
       if @api_client.config.client_side_validation && video_id.nil?
         fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.put_videos_video_id_chapters"
       end
-      # verify the required parameter 'request' is set
-      if @api_client.config.client_side_validation && request.nil?
-        fail ArgumentError, "Missing the required parameter 'request' when calling VideosApi.put_videos_video_id_chapters"
+      # verify the required parameter 'put_videos_video_id_chapters_request' is set
+      if @api_client.config.client_side_validation && put_videos_video_id_chapters_request.nil?
+        fail ArgumentError, "Missing the required parameter 'put_videos_video_id_chapters_request' when calling VideosApi.put_videos_video_id_chapters"
       end
       # resource path
       local_var_path = '/videos/{videoId}/chapters'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
@@ -1195,7 +1143,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(put_videos_video_id_chapters_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'UpdateChaptersResponse'
@@ -1224,12 +1172,10 @@ module OpenapiClient
     # Add or replace a subtitle for a specific language using API key authentication
     # @param video_id [String] Video ID
     # @param lang_code [String] Language Code (BCP 47)
-    # @param file [File] Subtitle file (.srt or .vtt)
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :label Label (e.g. English)
     # @return [Subtitle]
-    def put_videos_video_id_subtitles_lang_code(video_id, lang_code, file, opts = {})
-      data, _status_code, _headers = put_videos_video_id_subtitles_lang_code_with_http_info(video_id, lang_code, file, opts)
+    def put_videos_video_id_subtitles_lang_code(video_id, lang_code, opts = {})
+      data, _status_code, _headers = put_videos_video_id_subtitles_lang_code_with_http_info(video_id, lang_code, opts)
       data
     end
 
@@ -1237,11 +1183,9 @@ module OpenapiClient
     # Add or replace a subtitle for a specific language using API key authentication
     # @param video_id [String] Video ID
     # @param lang_code [String] Language Code (BCP 47)
-    # @param file [File] Subtitle file (.srt or .vtt)
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :label Label (e.g. English)
     # @return [Array<(Subtitle, Integer, Hash)>] Subtitle data, response status code and response headers
-    def put_videos_video_id_subtitles_lang_code_with_http_info(video_id, lang_code, file, opts = {})
+    def put_videos_video_id_subtitles_lang_code_with_http_info(video_id, lang_code, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VideosApi.put_videos_video_id_subtitles_lang_code ...'
       end
@@ -1252,10 +1196,6 @@ module OpenapiClient
       # verify the required parameter 'lang_code' is set
       if @api_client.config.client_side_validation && lang_code.nil?
         fail ArgumentError, "Missing the required parameter 'lang_code' when calling VideosApi.put_videos_video_id_subtitles_lang_code"
-      end
-      # verify the required parameter 'file' is set
-      if @api_client.config.client_side_validation && file.nil?
-        fail ArgumentError, "Missing the required parameter 'file' when calling VideosApi.put_videos_video_id_subtitles_lang_code"
       end
       # resource path
       local_var_path = '/videos/{videoId}/subtitles/{lang_code}'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s)).sub('{' + 'lang_code' + '}', CGI.escape(lang_code.to_s))
@@ -1268,15 +1208,13 @@ module OpenapiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
       # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      content_type = @api_client.select_header_content_type(['application/x-www-form-urlencoded', 'multipart/form-data'])
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
 
       # form parameters
       form_params = opts[:form_params] || {}
-      form_params['file'] = file
-      form_params['label'] = opts[:'label'] if !opts[:'label'].nil?
 
       # http body (model)
       post_body = opts[:debug_body]
@@ -1307,31 +1245,25 @@ module OpenapiClient
     # Update video thumbnail
     # Update the thumbnail image for an existing video using API key authentication
     # @param video_id [String] Video ID
-    # @param thumbnail [File] Thumbnail image file (max 5MB, image/*)
     # @param [Hash] opts the optional parameters
     # @return [Video]
-    def put_videos_video_id_thumbnail(video_id, thumbnail, opts = {})
-      data, _status_code, _headers = put_videos_video_id_thumbnail_with_http_info(video_id, thumbnail, opts)
+    def put_videos_video_id_thumbnail(video_id, opts = {})
+      data, _status_code, _headers = put_videos_video_id_thumbnail_with_http_info(video_id, opts)
       data
     end
 
     # Update video thumbnail
     # Update the thumbnail image for an existing video using API key authentication
     # @param video_id [String] Video ID
-    # @param thumbnail [File] Thumbnail image file (max 5MB, image/*)
     # @param [Hash] opts the optional parameters
     # @return [Array<(Video, Integer, Hash)>] Video data, response status code and response headers
-    def put_videos_video_id_thumbnail_with_http_info(video_id, thumbnail, opts = {})
+    def put_videos_video_id_thumbnail_with_http_info(video_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: VideosApi.put_videos_video_id_thumbnail ...'
       end
       # verify the required parameter 'video_id' is set
       if @api_client.config.client_side_validation && video_id.nil?
         fail ArgumentError, "Missing the required parameter 'video_id' when calling VideosApi.put_videos_video_id_thumbnail"
-      end
-      # verify the required parameter 'thumbnail' is set
-      if @api_client.config.client_side_validation && thumbnail.nil?
-        fail ArgumentError, "Missing the required parameter 'thumbnail' when calling VideosApi.put_videos_video_id_thumbnail"
       end
       # resource path
       local_var_path = '/videos/{videoId}/thumbnail'.sub('{' + 'videoId' + '}', CGI.escape(video_id.to_s))
@@ -1344,14 +1276,13 @@ module OpenapiClient
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
       # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['multipart/form-data'])
+      content_type = @api_client.select_header_content_type(['application/x-www-form-urlencoded', 'multipart/form-data'])
       if !content_type.nil?
           header_params['Content-Type'] = content_type
       end
 
       # form parameters
       form_params = opts[:form_params] || {}
-      form_params['thumbnail'] = thumbnail
 
       # http body (model)
       post_body = opts[:debug_body]

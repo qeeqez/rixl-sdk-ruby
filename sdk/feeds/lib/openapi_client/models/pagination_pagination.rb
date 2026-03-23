@@ -14,6 +14,7 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Pagination data for the request.
   class PaginationPagination < ApiModelBase
     # Maximum number of items to return in a single request.
     attr_accessor :limit
@@ -76,10 +77,14 @@ module OpenapiClient
 
       if attributes.key?(:'limit')
         self.limit = attributes[:'limit']
+      else
+        self.limit = 25
       end
 
       if attributes.key?(:'offset')
         self.offset = attributes[:'offset']
+      else
+        self.offset = 0
       end
 
       if attributes.key?(:'total')

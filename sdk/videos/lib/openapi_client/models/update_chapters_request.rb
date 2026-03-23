@@ -85,6 +85,16 @@ module OpenapiClient
       true
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] chapters Value to be assigned
+    def chapters=(chapters)
+      if chapters.nil?
+        fail ArgumentError, 'chapters cannot be nil'
+      end
+
+      @chapters = chapters
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)

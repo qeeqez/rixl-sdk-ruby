@@ -105,6 +105,8 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::InternalImagesHandlerUploadInitRequest](docs/InternalImagesHandlerUploadInitRequest.md)
  - [OpenapiClient::PaginationPaginatedResponseImage](docs/PaginationPaginatedResponseImage.md)
  - [OpenapiClient::PaginationPagination](docs/PaginationPagination.md)
+ - [OpenapiClient::PostImagesUploadCompleteRequest](docs/PostImagesUploadCompleteRequest.md)
+ - [OpenapiClient::PostImagesUploadInitRequest](docs/PostImagesUploadInitRequest.md)
 
 
 ## Documentation for Authorization

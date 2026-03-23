@@ -18,7 +18,6 @@ module OpenapiClient
     # Data contains the slice of items for the current request.
     attr_accessor :data
 
-    # Pagination data for the request.
     attr_accessor :pagination
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -93,6 +92,16 @@ module OpenapiClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] data Value to be assigned
+    def data=(data)
+      if data.nil?
+        fail ArgumentError, 'data cannot be nil'
+      end
+
+      @data = data
     end
 
     # Checks equality by comparing each attribute.

@@ -17,9 +17,11 @@ module OpenapiClient
   class PostType
     PostTypeImage = "image".freeze
     PostTypeVideo = "video".freeze
+    VIDEO2 = "video".freeze
+    IMAGE2 = "image".freeze
 
     def self.all_vars
-      @all_vars ||= [PostTypeImage, PostTypeVideo].freeze
+      @all_vars ||= [PostTypeImage, PostTypeVideo, VIDEO2, IMAGE2].freeze
     end
 
     # Builds the enum from string

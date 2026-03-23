@@ -27,6 +27,8 @@ require 'openapi_client/models/internal_images_handler_init_response'
 require 'openapi_client/models/internal_images_handler_upload_init_request'
 require 'openapi_client/models/pagination_paginated_response_image'
 require 'openapi_client/models/pagination_pagination'
+require 'openapi_client/models/post_images_upload_complete_request'
+require 'openapi_client/models/post_images_upload_init_request'
 
 # APIs
 require 'openapi_client/api/images_api'

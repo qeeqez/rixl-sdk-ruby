@@ -18,9 +18,12 @@ module OpenapiClient
     VideoQualityBasic = "basic".freeze
     VideoQualityShorts = "shorts".freeze
     VideoQualityPro = "pro".freeze
+    BASIC2 = "basic".freeze
+    SHORTS2 = "shorts".freeze
+    PRO2 = "pro".freeze
 
     def self.all_vars
-      @all_vars ||= [VideoQualityBasic, VideoQualityShorts, VideoQualityPro].freeze
+      @all_vars ||= [VideoQualityBasic, VideoQualityShorts, VideoQualityPro, BASIC2, SHORTS2, PRO2].freeze
     end
 
     # Builds the enum from string

@@ -51,7 +51,7 @@ module OpenapiClient
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['*/*']) unless header_params['Accept']
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -228,26 +228,26 @@ module OpenapiClient
 
     # Upload: Mark as complete
     # Complete the upload process and create the image record using API key authentication
-    # @param request [InternalImagesHandlerCompleteRequest] Upload completion request
+    # @param post_images_upload_complete_request [PostImagesUploadCompleteRequest] Upload completion request
     # @param [Hash] opts the optional parameters
     # @return [Image]
-    def post_images_upload_complete(request, opts = {})
-      data, _status_code, _headers = post_images_upload_complete_with_http_info(request, opts)
+    def post_images_upload_complete(post_images_upload_complete_request, opts = {})
+      data, _status_code, _headers = post_images_upload_complete_with_http_info(post_images_upload_complete_request, opts)
       data
     end
 
     # Upload: Mark as complete
     # Complete the upload process and create the image record using API key authentication
-    # @param request [InternalImagesHandlerCompleteRequest] Upload completion request
+    # @param post_images_upload_complete_request [PostImagesUploadCompleteRequest] Upload completion request
     # @param [Hash] opts the optional parameters
     # @return [Array<(Image, Integer, Hash)>] Image data, response status code and response headers
-    def post_images_upload_complete_with_http_info(request, opts = {})
+    def post_images_upload_complete_with_http_info(post_images_upload_complete_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ImagesApi.post_images_upload_complete ...'
       end
-      # verify the required parameter 'request' is set
-      if @api_client.config.client_side_validation && request.nil?
-        fail ArgumentError, "Missing the required parameter 'request' when calling ImagesApi.post_images_upload_complete"
+      # verify the required parameter 'post_images_upload_complete_request' is set
+      if @api_client.config.client_side_validation && post_images_upload_complete_request.nil?
+        fail ArgumentError, "Missing the required parameter 'post_images_upload_complete_request' when calling ImagesApi.post_images_upload_complete"
       end
       # resource path
       local_var_path = '/images/upload/complete'
@@ -269,7 +269,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(post_images_upload_complete_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'Image'
@@ -296,26 +296,26 @@ module OpenapiClient
 
     # Upload: Init
     # Initialize a presigned URL upload for an image file using API key authentication
-    # @param request [InternalImagesHandlerUploadInitRequest] Upload initialization request
+    # @param post_images_upload_init_request [PostImagesUploadInitRequest] Upload initialization request
     # @param [Hash] opts the optional parameters
     # @return [InternalImagesHandlerInitResponse]
-    def post_images_upload_init(request, opts = {})
-      data, _status_code, _headers = post_images_upload_init_with_http_info(request, opts)
+    def post_images_upload_init(post_images_upload_init_request, opts = {})
+      data, _status_code, _headers = post_images_upload_init_with_http_info(post_images_upload_init_request, opts)
       data
     end
 
     # Upload: Init
     # Initialize a presigned URL upload for an image file using API key authentication
-    # @param request [InternalImagesHandlerUploadInitRequest] Upload initialization request
+    # @param post_images_upload_init_request [PostImagesUploadInitRequest] Upload initialization request
     # @param [Hash] opts the optional parameters
     # @return [Array<(InternalImagesHandlerInitResponse, Integer, Hash)>] InternalImagesHandlerInitResponse data, response status code and response headers
-    def post_images_upload_init_with_http_info(request, opts = {})
+    def post_images_upload_init_with_http_info(post_images_upload_init_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ImagesApi.post_images_upload_init ...'
       end
-      # verify the required parameter 'request' is set
-      if @api_client.config.client_side_validation && request.nil?
-        fail ArgumentError, "Missing the required parameter 'request' when calling ImagesApi.post_images_upload_init"
+      # verify the required parameter 'post_images_upload_init_request' is set
+      if @api_client.config.client_side_validation && post_images_upload_init_request.nil?
+        fail ArgumentError, "Missing the required parameter 'post_images_upload_init_request' when calling ImagesApi.post_images_upload_init"
       end
       # resource path
       local_var_path = '/images/upload/init'
@@ -337,7 +337,7 @@ module OpenapiClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(post_images_upload_init_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'InternalImagesHandlerInitResponse'
