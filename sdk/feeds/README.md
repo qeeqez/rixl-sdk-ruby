@@ -91,35 +91,17 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [RixlFeedsSdk::AudioTrack](docs/AudioTrack.md)
- - [RixlFeedsSdk::AudioTrackDelete](docs/AudioTrackDelete.md)
  - [RixlFeedsSdk::Chapter](docs/Chapter.md)
  - [RixlFeedsSdk::File](docs/File.md)
  - [RixlFeedsSdk::FileStatus](docs/FileStatus.md)
  - [RixlFeedsSdk::GithubComQeeqezApiDbSqlcPlanType](docs/GithubComQeeqezApiDbSqlcPlanType.md)
- - [RixlFeedsSdk::GithubComQeeqezApiDbSqlcVideoQuality](docs/GithubComQeeqezApiDbSqlcVideoQuality.md)
  - [RixlFeedsSdk::GithubComQeeqezApiInternalErrorsErrorResponse](docs/GithubComQeeqezApiInternalErrorsErrorResponse.md)
- - [RixlFeedsSdk::GithubComQeeqezApiInternalVideosHandlerUploadCompleteRequest](docs/GithubComQeeqezApiInternalVideosHandlerUploadCompleteRequest.md)
- - [RixlFeedsSdk::GithubComQeeqezApiInternalVideosHandlerUploadInitResponse](docs/GithubComQeeqezApiInternalVideosHandlerUploadInitResponse.md)
- - [RixlFeedsSdk::GithubComQeeqezApiInternalVideosTypesChapterInput](docs/GithubComQeeqezApiInternalVideosTypesChapterInput.md)
  - [RixlFeedsSdk::GithubComQeeqezApiInternalVideosVideoResponse](docs/GithubComQeeqezApiInternalVideosVideoResponse.md)
  - [RixlFeedsSdk::Image](docs/Image.md)
- - [RixlFeedsSdk::InternalImagesHandlerCompleteRequest](docs/InternalImagesHandlerCompleteRequest.md)
- - [RixlFeedsSdk::InternalImagesHandlerInitResponse](docs/InternalImagesHandlerInitResponse.md)
- - [RixlFeedsSdk::InternalImagesHandlerUploadInitRequest](docs/InternalImagesHandlerUploadInitRequest.md)
- - [RixlFeedsSdk::InternalVideosHandlerSubtitlesLanguageResponse](docs/InternalVideosHandlerSubtitlesLanguageResponse.md)
- - [RixlFeedsSdk::PaginationPaginatedResponseImage](docs/PaginationPaginatedResponseImage.md)
  - [RixlFeedsSdk::PaginationPaginatedResponsePost](docs/PaginationPaginatedResponsePost.md)
- - [RixlFeedsSdk::PaginationPaginatedResponseVideo](docs/PaginationPaginatedResponseVideo.md)
  - [RixlFeedsSdk::PaginationPagination](docs/PaginationPagination.md)
  - [RixlFeedsSdk::Post](docs/Post.md)
  - [RixlFeedsSdk::PostType](docs/PostType.md)
- - [RixlFeedsSdk::Subtitle](docs/Subtitle.md)
- - [RixlFeedsSdk::SubtitleDelete](docs/SubtitleDelete.md)
- - [RixlFeedsSdk::UpdateChaptersRequest](docs/UpdateChaptersRequest.md)
- - [RixlFeedsSdk::UpdateChaptersResponse](docs/UpdateChaptersResponse.md)
- - [RixlFeedsSdk::Video](docs/Video.md)
- - [RixlFeedsSdk::VideoUploadInitRequest](docs/VideoUploadInitRequest.md)
 
 
 ## Documentation for Authorization

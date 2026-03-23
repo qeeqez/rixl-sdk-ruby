@@ -99,10 +99,10 @@ if [[ -n "${service_arg}" ]]; then
 	services=("${service_arg}")
 fi
 
-mkdir -p "${ROOT_DIR}/sdk"
+mkdir -p "${ROOT_DIR}/sdk" "${ROOT_DIR}/openapi/services"
 
 for service in "${services[@]}"; do
-	service_spec="${TMP_DIR}/${service}.swagger.json"
+	service_spec="${ROOT_DIR}/openapi/services/${service}.swagger.json"
 	service_tmp="${TMP_DIR}/out-${service}"
 	output_dir="${ROOT_DIR}/sdk/${service}"
 	module_name="$(service_module_name "${service}")"
