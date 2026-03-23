@@ -1,40 +1,38 @@
-# RIXL Ruby SDKs
+# RIXL Ruby SDK
 
-This repository contains the Ruby SDK split by service instead of one flat generated gem.
+The RIXL Ruby SDK provides a simple and expressive way to interact with the RIXL API. Built for productivity and ease of use.
 
-## Layout
+## Gems
 
-- `sdk/feeds` -> gem `rixl_feeds_sdk`
-- `sdk/videos` -> gem `rixl_videos_sdk`
-- `sdk/images` -> gem `rixl_images_sdk`
+The SDK is split into service-specific gems:
 
-Each service folder is a standalone generated gem with its own gemspec, `lib`, and `spec` directories.
+- **rixl-sdk-ruby-feeds**: Access and manage feeds.
+- **rixl-sdk-ruby-videos**: Video lifecycle and processing management.
+- **rixl-sdk-ruby-images**: Image management and transformations.
 
-## Build Example
+## Installation
 
-Build the videos gem:
+Add this line to your application's Gemfile:
 
-```sh
-cd sdk/videos
-gem build rixl_videos_sdk.gemspec
+```ruby
+gem 'rixl-sdk-ruby-videos'
 ```
 
-## Regenerate
+And then execute:
 
-Generate all services:
-
-```sh
-./scripts/generate.sh
+```bash
+bundle install
 ```
 
-Generate one service:
+## Usage
 
-```sh
-./scripts/generate.sh --service videos
+```ruby
+require 'rixl_videos_sdk'
+
+api = RixlVideosSdk::VideosApi.new
+# api.get_video(...)
 ```
 
-Regenerate from a fresh OpenAPI file:
+## Documentation
 
-```sh
-./scripts/generate.sh --spec /path/to/public.swagger.json --service images
-```
+Full documentation is available at [docs.rixl.com](https://docs.rixl.com).
