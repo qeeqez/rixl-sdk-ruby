@@ -1305,7 +1305,7 @@ module RixlVideosSdk
     end
 
     # Update video thumbnail
-    # Update the thumbnail image for an existing video
+    # Update the thumbnail image for an existing video using API key authentication
     # @param video_id [String] Video ID
     # @param thumbnail [File] Thumbnail image file (max 5MB, image/*)
     # @param [Hash] opts the optional parameters
@@ -1316,7 +1316,7 @@ module RixlVideosSdk
     end
 
     # Update video thumbnail
-    # Update the thumbnail image for an existing video
+    # Update the thumbnail image for an existing video using API key authentication
     # @param video_id [String] Video ID
     # @param thumbnail [File] Thumbnail image file (max 5MB, image/*)
     # @param [Hash] opts the optional parameters
@@ -1360,7 +1360,7 @@ module RixlVideosSdk
       return_type = opts[:debug_return_type] || 'Video'
 
       # auth_names
-      auth_names = opts[:debug_auth_names] || []
+      auth_names = opts[:debug_auth_names] || ['ApiKeyAuth']
 
       new_options = opts.merge(
         :operation => :"VideosApi.put_videos_video_id_thumbnail",
