@@ -118,8 +118,18 @@ for service in "${services[@]}"; do
 
 	perl -0pi -e 's{https://github.com/GIT_USER_ID/GIT_REPO_ID}{https://github.com/qeeqez/rixl-sdk-ruby}g; s{\*http://localhost\*}{*https://api.rixl.com*}g' "${service_tmp}/README.md"
 
-	rm -rf "${service_tmp}/.openapi-generator"
-	rm -f "${service_tmp}/.gitlab-ci.yml" "${service_tmp}/.travis.yml" "${service_tmp}/git_push.sh"
+	rm -rf "${service_tmp}/.openapi-generator" "${service_tmp}/spec"
+	rm -f \
+		"${service_tmp}/.gitlab-ci.yml" \
+		"${service_tmp}/.travis.yml" \
+		"${service_tmp}/git_push.sh" \
+		"${service_tmp}/README.md" \
+		"${service_tmp}/.gitignore" \
+		"${service_tmp}/.openapi-generator-ignore" \
+		"${service_tmp}/.rspec" \
+		"${service_tmp}/.rubocop.yml" \
+		"${service_tmp}/Gemfile" \
+		"${service_tmp}/Rakefile"
 
 	mkdir -p "${output_dir}"
 	rsync -a --delete \
