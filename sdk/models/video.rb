@@ -181,7 +181,7 @@ module RixlSdk
                     "hdr" => lambda {|n| @hdr = n.get_boolean_value() },
                     "height" => lambda {|n| @height = n.get_number_value() },
                     "id" => lambda {|n| @id = n.get_string_value() },
-                    "plan_type" => lambda {|n| @plan_type = n.get_enum_value(RixlSdk::Models::Github_com_qeeqez_api_db_sqlcPlanType) },
+                    "plan_type" => lambda {|n| @plan_type = n.get_enum_value(RixlSdk::Models::Github_com_rixlhq_api_db_sqlcPlanType) },
                     "poster" => lambda {|n| @poster = n.get_object_value(lambda {|pn| RixlSdk::Models::Image.create_from_discriminator_value(pn) }) },
                     "width" => lambda {|n| @width = n.get_number_value() },
                 }
@@ -233,7 +233,7 @@ module RixlSdk
             end
             ## 
             ## Gets the plan_type property value. The plan_type property
-            ## @return a github_com_qeeqez_api_db_sqlc_plan_type
+            ## @return a github_com_rixlhq_api_db_sqlc_plan_type
             ## 
             def plan_type
                 return @plan_type

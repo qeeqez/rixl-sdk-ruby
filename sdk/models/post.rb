@@ -142,10 +142,10 @@ module RixlSdk
                     "feed_id" => lambda {|n| @feed_id = n.get_string_value() },
                     "id" => lambda {|n| @id = n.get_string_value() },
                     "image" => lambda {|n| @image = n.get_object_value(lambda {|pn| RixlSdk::Models::Image.create_from_discriminator_value(pn) }) },
-                    "plan_type" => lambda {|n| @plan_type = n.get_enum_value(RixlSdk::Models::Github_com_qeeqez_api_db_sqlcPlanType) },
+                    "plan_type" => lambda {|n| @plan_type = n.get_enum_value(RixlSdk::Models::Github_com_rixlhq_api_db_sqlcPlanType) },
                     "type" => lambda {|n| @type = n.get_enum_value(RixlSdk::Models::PostType) },
                     "updated_at" => lambda {|n| @updated_at = n.get_string_value() },
-                    "video" => lambda {|n| @video = n.get_object_value(lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_videosVideoResponse.create_from_discriminator_value(pn) }) },
+                    "video" => lambda {|n| @video = n.get_object_value(lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_videosVideoResponse.create_from_discriminator_value(pn) }) },
                 }
             end
             ## 
@@ -180,7 +180,7 @@ module RixlSdk
             end
             ## 
             ## Gets the plan_type property value. The plan_type property
-            ## @return a github_com_qeeqez_api_db_sqlc_plan_type
+            ## @return a github_com_rixlhq_api_db_sqlc_plan_type
             ## 
             def plan_type
                 return @plan_type
@@ -244,7 +244,7 @@ module RixlSdk
             end
             ## 
             ## Gets the video property value. The video property
-            ## @return a github_com_qeeqez_api_internal_videos_video_response
+            ## @return a github_com_rixlhq_api_internal_videos_video_response
             ## 
             def video
                 return @video

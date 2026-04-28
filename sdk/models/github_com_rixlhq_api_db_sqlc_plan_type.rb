@@ -1,6 +1,6 @@
 module RixlSdk
     module Models
-        Github_com_qeeqez_api_db_sqlcPlanType = {
+        Github_com_rixlhq_api_db_sqlcPlanType = {
             Free: :Free,
             Pro: :Pro,
             Custom: :Custom,

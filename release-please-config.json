@@ -1,0 +1,10 @@
+{
+    "$schema": "https://raw.githubusercontent.com/googleapis/release-please-action/v4/schema.json",
+    "packages": {
+        "sdk": {
+            "release-type": "ruby",
+            "package-name": "rixl-sdk-ruby",
+            "version-file": "lib/rixl_sdk/version.rb"
+        }
+    }
+}

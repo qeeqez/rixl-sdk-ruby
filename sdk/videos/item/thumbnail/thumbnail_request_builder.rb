@@ -1,5 +1,5 @@
 require 'microsoft_kiota_abstractions'
-require_relative '../../../models/github_com_qeeqez_api_internal_errors_error_response'
+require_relative '../../../models/github_com_rixlhq_api_internal_errors_error_response'
 require_relative '../../../models/video'
 require_relative '../../../rixl_sdk'
 require_relative '../../videos'
@@ -24,7 +24,7 @@ module RixlSdk
                         super(path_parameters, request_adapter, "{+baseurl}/videos/{videoId}/thumbnail")
                     end
                     ## 
-                    ## Update the thumbnail image for an existing video using API key authentication
+                    ## Update the thumbnail image for an existing video
                     ## @param body The request body
                     ## @param request_configuration Configuration for the request such as headers, query parameters, and middleware options.
                     ## @return a Fiber of video
@@ -35,15 +35,15 @@ module RixlSdk
                             body, request_configuration
                         )
                         error_mapping = Hash.new
-                        error_mapping["400"] = lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
-                        error_mapping["401"] = lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
-                        error_mapping["403"] = lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
-                        error_mapping["404"] = lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
-                        error_mapping["500"] = lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
+                        error_mapping["400"] = lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
+                        error_mapping["401"] = lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
+                        error_mapping["403"] = lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
+                        error_mapping["404"] = lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
+                        error_mapping["500"] = lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
                         return @request_adapter.send_async(request_info, lambda {|pn| RixlSdk::Models::Video.create_from_discriminator_value(pn) }, error_mapping)
                     end
                     ## 
-                    ## Update the thumbnail image for an existing video using API key authentication
+                    ## Update the thumbnail image for an existing video
                     ## @param body The request body
                     ## @param request_configuration Configuration for the request such as headers, query parameters, and middleware options.
                     ## @return a request_information

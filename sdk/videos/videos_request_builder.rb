@@ -1,5 +1,5 @@
 require 'microsoft_kiota_abstractions'
-require_relative '../models/github_com_qeeqez_api_internal_errors_error_response'
+require_relative '../models/github_com_rixlhq_api_internal_errors_error_response'
 require_relative '../models/pagination_paginated_response_video'
 require_relative '../rixl_sdk'
 require_relative './item/with_video_item_request_builder'
@@ -53,10 +53,10 @@ module RixlSdk
                     request_configuration
                 )
                 error_mapping = Hash.new
-                error_mapping["400"] = lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
-                error_mapping["401"] = lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
-                error_mapping["403"] = lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
-                error_mapping["500"] = lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
+                error_mapping["400"] = lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
+                error_mapping["401"] = lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
+                error_mapping["403"] = lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
+                error_mapping["500"] = lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
                 return @request_adapter.send_async(request_info, lambda {|pn| RixlSdk::Models::PaginationPaginatedResponseVideo.create_from_discriminator_value(pn) }, error_mapping)
             end
             ## 

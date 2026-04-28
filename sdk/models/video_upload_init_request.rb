@@ -74,7 +74,7 @@ module RixlSdk
                 return {
                     "file_name" => lambda {|n| @file_name = n.get_string_value() },
                     "image_format" => lambda {|n| @image_format = n.get_string_value() },
-                    "video_quality" => lambda {|n| @video_quality = n.get_enum_value(RixlSdk::Models::Github_com_qeeqez_api_db_sqlcVideoQuality) },
+                    "video_quality" => lambda {|n| @video_quality = n.get_enum_value(RixlSdk::Models::Github_com_rixlhq_api_db_sqlcVideoQuality) },
                 }
             end
             ## 
@@ -106,7 +106,7 @@ module RixlSdk
             end
             ## 
             ## Gets the video_quality property value. The video_quality property
-            ## @return a github_com_qeeqez_api_db_sqlc_video_quality
+            ## @return a github_com_rixlhq_api_db_sqlc_video_quality
             ## 
             def video_quality
                 return @video_quality

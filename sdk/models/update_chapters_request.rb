@@ -31,7 +31,7 @@ module RixlSdk
             end
             ## 
             ## Gets the chapters property value. The chapters property
-            ## @return a github_com_qeeqez_api_internal_videos_types_chapter_input
+            ## @return a github_com_rixlhq_api_internal_videos_types_chapter_input
             ## 
             def chapters
                 return @chapters
@@ -66,7 +66,7 @@ module RixlSdk
             ## 
             def get_field_deserializers()
                 return {
-                    "chapters" => lambda {|n| @chapters = n.get_collection_of_object_values(lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_videos_typesChapterInput.create_from_discriminator_value(pn) }) },
+                    "chapters" => lambda {|n| @chapters = n.get_collection_of_object_values(lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_videos_typesChapterInput.create_from_discriminator_value(pn) }) },
                 }
             end
             ## 

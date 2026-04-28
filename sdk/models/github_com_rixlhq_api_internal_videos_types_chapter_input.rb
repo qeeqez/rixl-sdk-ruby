@@ -4,16 +4,17 @@ require_relative './models'
 
 module RixlSdk
     module Models
-        ## 
-        # Video upload completion request
-        class Github_com_qeeqez_api_internal_videos_handler_uploadCompleteRequest
+        class Github_com_rixlhq_api_internal_videos_typesChapterInput
             include MicrosoftKiotaAbstractions::AdditionalDataHolder, MicrosoftKiotaAbstractions::Parsable
             ## 
             # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
             @additional_data
             ## 
-            # The video_id property
-            @video_id
+            # The start_time_sec property
+            @start_time_sec
+            ## 
+            # The title property
+            @title
             ## 
             ## Gets the AdditionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
             ## @return a i_dictionary
@@ -30,7 +31,7 @@ module RixlSdk
                 @additional_data = value
             end
             ## 
-            ## Instantiates a new Github_com_qeeqez_api_internal_videos_handler_uploadCompleteRequest and sets the default values.
+            ## Instantiates a new Github_com_rixlhq_api_internal_videos_typesChapterInput and sets the default values.
             ## @return a void
             ## 
             def initialize()
@@ -39,11 +40,11 @@ module RixlSdk
             ## 
             ## Creates a new instance of the appropriate class based on discriminator value
             ## @param parse_node The parse node to use to read the discriminator value and create the object
-            ## @return a github_com_qeeqez_api_internal_videos_handler_upload_complete_request
+            ## @return a github_com_rixlhq_api_internal_videos_types_chapter_input
             ## 
             def self.create_from_discriminator_value(parse_node)
                 raise StandardError, 'parse_node cannot be null' if parse_node.nil?
-                return Github_com_qeeqez_api_internal_videos_handler_uploadCompleteRequest.new
+                return Github_com_rixlhq_api_internal_videos_typesChapterInput.new
             end
             ## 
             ## The deserialization information for the current model
@@ -51,7 +52,8 @@ module RixlSdk
             ## 
             def get_field_deserializers()
                 return {
-                    "video_id" => lambda {|n| @video_id = n.get_string_value() },
+                    "start_time_sec" => lambda {|n| @start_time_sec = n.get_object_value(lambda {|pn| Double.create_from_discriminator_value(pn) }) },
+                    "title" => lambda {|n| @title = n.get_string_value() },
                 }
             end
             ## 
@@ -61,23 +63,39 @@ module RixlSdk
             ## 
             def serialize(writer)
                 raise StandardError, 'writer cannot be null' if writer.nil?
-                writer.write_string_value("video_id", @video_id)
+                writer.write_object_value("start_time_sec", @start_time_sec)
+                writer.write_string_value("title", @title)
                 writer.write_additional_data(@additional_data)
             end
             ## 
-            ## Gets the video_id property value. The video_id property
-            ## @return a string
+            ## Gets the start_time_sec property value. The start_time_sec property
+            ## @return a double
             ## 
-            def video_id
-                return @video_id
+            def start_time_sec
+                return @start_time_sec
             end
             ## 
-            ## Sets the video_id property value. The video_id property
-            ## @param value Value to set for the video_id property.
+            ## Sets the start_time_sec property value. The start_time_sec property
+            ## @param value Value to set for the start_time_sec property.
             ## @return a void
             ## 
-            def video_id=(value)
-                @video_id = value
+            def start_time_sec=(value)
+                @start_time_sec = value
+            end
+            ## 
+            ## Gets the title property value. The title property
+            ## @return a string
+            ## 
+            def title
+                return @title
+            end
+            ## 
+            ## Sets the title property value. The title property
+            ## @param value Value to set for the title property.
+            ## @return a void
+            ## 
+            def title=(value)
+                @title = value
             end
         end
     end

@@ -6,7 +6,7 @@ module RixlSdk
     module Models
         ## 
         # Standard error response returned by the API
-        class Github_com_qeeqez_api_internal_errorsErrorResponse < MicrosoftKiotaAbstractions::ApiError
+        class Github_com_rixlhq_api_internal_errorsErrorResponse < MicrosoftKiotaAbstractions::ApiError
             include MicrosoftKiotaAbstractions::AdditionalDataHolder, MicrosoftKiotaAbstractions::Parsable
             ## 
             # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -51,7 +51,7 @@ module RixlSdk
                 @code = value
             end
             ## 
-            ## Instantiates a new Github_com_qeeqez_api_internal_errorsErrorResponse and sets the default values.
+            ## Instantiates a new Github_com_rixlhq_api_internal_errorsErrorResponse and sets the default values.
             ## @return a void
             ## 
             def initialize()
@@ -61,11 +61,11 @@ module RixlSdk
             ## 
             ## Creates a new instance of the appropriate class based on discriminator value
             ## @param parse_node The parse node to use to read the discriminator value and create the object
-            ## @return a github_com_qeeqez_api_internal_errors_error_response
+            ## @return a github_com_rixlhq_api_internal_errors_error_response
             ## 
             def self.create_from_discriminator_value(parse_node)
                 raise StandardError, 'parse_node cannot be null' if parse_node.nil?
-                return Github_com_qeeqez_api_internal_errorsErrorResponse.new
+                return Github_com_rixlhq_api_internal_errorsErrorResponse.new
             end
             ## 
             ## Gets the details property value. Optional details about the error

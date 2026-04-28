@@ -1,6 +1,6 @@
 require 'microsoft_kiota_abstractions'
-require_relative '../../../models/github_com_qeeqez_api_internal_errors_error_response'
-require_relative '../../../models/github_com_qeeqez_api_internal_videos_handler_upload_init_response'
+require_relative '../../../models/github_com_rixlhq_api_internal_errors_error_response'
+require_relative '../../../models/github_com_rixlhq_api_internal_videos_handler_upload_init_response'
 require_relative '../../../models/video_upload_init_request'
 require_relative '../../../rixl_sdk'
 require_relative '../../videos'
@@ -28,7 +28,7 @@ module RixlSdk
                     ## Initialize a video upload and get presigned URLs for video and poster using API key authentication
                     ## @param body The request body
                     ## @param request_configuration Configuration for the request such as headers, query parameters, and middleware options.
-                    ## @return a Fiber of github_com_qeeqez_api_internal_videos_handler_upload_init_response
+                    ## @return a Fiber of github_com_rixlhq_api_internal_videos_handler_upload_init_response
                     ## 
                     def post(body, request_configuration=nil)
                         raise StandardError, 'body cannot be null' if body.nil?
@@ -36,11 +36,11 @@ module RixlSdk
                             body, request_configuration
                         )
                         error_mapping = Hash.new
-                        error_mapping["400"] = lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
-                        error_mapping["401"] = lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
-                        error_mapping["403"] = lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
-                        error_mapping["500"] = lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
-                        return @request_adapter.send_async(request_info, lambda {|pn| RixlSdk::Models::Github_com_qeeqez_api_internal_videos_handler_uploadInitResponse.create_from_discriminator_value(pn) }, error_mapping)
+                        error_mapping["400"] = lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
+                        error_mapping["401"] = lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
+                        error_mapping["403"] = lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
+                        error_mapping["500"] = lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_errorsErrorResponse.create_from_discriminator_value(pn) }
+                        return @request_adapter.send_async(request_info, lambda {|pn| RixlSdk::Models::Github_com_rixlhq_api_internal_videos_handler_uploadInitResponse.create_from_discriminator_value(pn) }, error_mapping)
                     end
                     ## 
                     ## Initialize a video upload and get presigned URLs for video and poster using API key authentication

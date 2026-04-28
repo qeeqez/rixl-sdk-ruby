@@ -4,7 +4,7 @@ require_relative './models'
 
 module RixlSdk
     module Models
-        class Github_com_qeeqez_api_internal_videosVideoResponse
+        class Github_com_rixlhq_api_internal_videosVideoResponse
             include MicrosoftKiotaAbstractions::AdditionalDataHolder, MicrosoftKiotaAbstractions::Parsable
             ## 
             # Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -106,7 +106,7 @@ module RixlSdk
                 @codec = value
             end
             ## 
-            ## Instantiates a new Github_com_qeeqez_api_internal_videosVideoResponse and sets the default values.
+            ## Instantiates a new Github_com_rixlhq_api_internal_videosVideoResponse and sets the default values.
             ## @return a void
             ## 
             def initialize()
@@ -115,11 +115,11 @@ module RixlSdk
             ## 
             ## Creates a new instance of the appropriate class based on discriminator value
             ## @param parse_node The parse node to use to read the discriminator value and create the object
-            ## @return a github_com_qeeqez_api_internal_videos_video_response
+            ## @return a github_com_rixlhq_api_internal_videos_video_response
             ## 
             def self.create_from_discriminator_value(parse_node)
                 raise StandardError, 'parse_node cannot be null' if parse_node.nil?
-                return Github_com_qeeqez_api_internal_videosVideoResponse.new
+                return Github_com_rixlhq_api_internal_videosVideoResponse.new
             end
             ## 
             ## Gets the duration property value. The duration property
@@ -181,7 +181,7 @@ module RixlSdk
                     "hdr" => lambda {|n| @hdr = n.get_boolean_value() },
                     "height" => lambda {|n| @height = n.get_number_value() },
                     "id" => lambda {|n| @id = n.get_string_value() },
-                    "plan_type" => lambda {|n| @plan_type = n.get_enum_value(RixlSdk::Models::Github_com_qeeqez_api_db_sqlcPlanType) },
+                    "plan_type" => lambda {|n| @plan_type = n.get_enum_value(RixlSdk::Models::Github_com_rixlhq_api_db_sqlcPlanType) },
                     "poster" => lambda {|n| @poster = n.get_object_value(lambda {|pn| RixlSdk::Models::Image.create_from_discriminator_value(pn) }) },
                     "width" => lambda {|n| @width = n.get_number_value() },
                 }
@@ -233,7 +233,7 @@ module RixlSdk
             end
             ## 
             ## Gets the plan_type property value. The plan_type property
-            ## @return a github_com_qeeqez_api_db_sqlc_plan_type
+            ## @return a github_com_rixlhq_api_db_sqlc_plan_type
             ## 
             def plan_type
                 return @plan_type
