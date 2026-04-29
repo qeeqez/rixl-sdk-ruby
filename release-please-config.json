@@ -3,7 +3,7 @@
     "packages": {
         "sdk": {
             "release-type": "ruby",
-            "package-name": "rixl-sdk-ruby",
+            "package-name": "rixl-ruby",
             "version-file": "lib/rixl_sdk/version.rb"
         }
     }
