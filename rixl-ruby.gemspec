@@ -2,9 +2,20 @@ Gem::Specification.new do |spec|
   spec.name          = "rixl-ruby"
   spec.version       = "0.0.0"
   spec.summary       = "Ruby client for the RIXL API."
-  spec.description   = "Ruby client for the RIXL API."
+  spec.description   = "Typed Ruby client for the RIXL API — manage images, videos, and feeds."
+  spec.homepage      = "https://github.com/rixlhq/rixl-ruby"
+  spec.license       = "MIT"
   spec.authors       = ["RIXL"]
   spec.email         = ["support@rixl.com"]
+  spec.required_ruby_version = ">= 3.0"
+
+  spec.metadata = {
+    "homepage_uri"      => "https://github.com/rixlhq/rixl-ruby",
+    "source_code_uri"   => "https://github.com/rixlhq/rixl-ruby",
+    "bug_tracker_uri"   => "https://github.com/rixlhq/rixl-ruby/issues",
+    "changelog_uri"     => "https://github.com/rixlhq/rixl-ruby/blob/main/CHANGELOG.md",
+    "rubygems_mfa_required" => "true"
+  }
   spec.files         = Dir.glob("sdk/{*.rb,feeds/**/*.rb,images/**/*.rb,videos/**/*.rb,models/**/*.rb}")
   spec.require_paths = ["sdk"]
 
