@@ -4,7 +4,7 @@ require_relative "lib/rixl/version"
 
 Gem::Specification.new do |spec|
   spec.name = "rixl"
-  spec.version = Rixl::VERSION
+  spec.version = "0.1.0"
   spec.authors = ["RIXL"]
   spec.email = ["support@rixl"]
 

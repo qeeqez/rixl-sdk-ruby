@@ -7,6 +7,6 @@ kiota generate \
     -c rixl \
     -n rixl \
     -d https://raw.githubusercontent.com/rixlhq/openapi/refs/heads/main/openapi.yaml \
-    -o "$(dirname "$0")/sdk" \
+    -o "$(dirname "$0")/lib" \
     --clean-output \
     --exclude-backward-compatible
